@@ -305,7 +305,85 @@
     body.dark-mode .feature-card p {
       color: #adb5bd;
     }
+    /* How It Works Section */
+    .how-it-works {
+      padding: 5rem 0;
+      background-color: #f9f9f9;
+    }
 
+    body.dark-mode .how-it-works {
+      background-color: #1a1a1a;
+    }
+
+    .workflow {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .workflow-step {
+      display: flex;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .workflow-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .workflow-number {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-right: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .workflow-content {
+      flex-grow: 1;
+    }
+
+    .workflow-step::after {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 25px;
+      width: 2px;
+      height: calc(100% - 30px);
+      background-color: var(--primary-color);
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .workflow-step:last-child::after {
+      display: none;
+    }
+
+    .workflow-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+    }
+
+    .workflow-content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    body.dark-mode .workflow-content p {
+      color: #ccc;
+    }
     /* Footer */
     footer {
       background-color: var(--secondary-color);
@@ -425,7 +503,15 @@
   opacity: 0.7;
   animation: moveParticle 2s linear infinite;
 }
-
+body:not(.dark-mode) .particle{
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: rgb(12, 217, 236);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: moveParticle 2s linear infinite;
+}
 /* Random motion keyframes */
 @keyframes moveParticle {
   0% {
@@ -544,8 +630,8 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Transform Your College Management Experience</h1>
-        <p>A comprehensive platform designed to streamline academic and administrative processes with QR-based attendance, assignment management, and more.</p>
+        <h1>Revolutionize Your College Management Experience</h1>
+        <p>EduSync is a comprehensive platform designed to streamline academic and administrative processes with QR-based attendance, secure file management, real-time notifications, and powerful analytics.</p>
         <button class="hero-btn">Get Started</button>
       </div>
       <div class="hero-image">
@@ -627,6 +713,53 @@
       </div>
     </div>
   </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-title">
+        <h2>How EduSync Works</h2>
+        <p>A seamless workflow designed for educational excellence</p>
+      </div>
+      <div class="workflow">
+        <div class="workflow-step">
+          <div class="workflow-number">1</div>
+          <div class="workflow-content">
+            <h3>Secure Authentication</h3>
+            <p>Users access role-specific interfaces through our secure login system. Students, teachers, and administrators each see personalized dashboards tailored to their specific needs and responsibilities.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-number">2</div>
+          <div class="workflow-content">
+            <h3>QR Attendance Tracking</h3>
+            <p>Teachers generate time-limited QR codes for each class session. Students scan these codes using their mobile devices, and the system instantly records attendance with geolocation verification to prevent proxy attendance.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-number">3</div>
+          <div class="workflow-content">
+            <h3>Assignment Management</h3>
+            <p>Faculty members create assignments with detailed instructions, resources, and deadline information. Students receive notifications, submit their work electronically, and teachers can provide feedback and grades within the same unified system.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-number">4</div>
+          <div class="workflow-content">
+            <h3>Resource Distribution</h3>
+            <p>Educational materials are organized within a structured digital library. Students access course-specific content while teachers maintain and update resources. Version history ensures students always have the most current materials.</p>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-number">5</div>
+          <div class="workflow-content">
+            <h3>Performance Monitoring</h3>
+            <p>The system continuously tracks student engagement, assignment completion, and academic results. Customizable reports and dashboards provide actionable insights for improving educational outcomes for both individual students and entire cohorts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <footer>
     <div class="container">
