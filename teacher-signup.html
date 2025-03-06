@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teacher Signup - EduSync</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary-color: #4361ee;
+      --primary-hover: #3a56d4;
       --secondary-color: #3a0ca3;
       --accent-color: #4cc9f0;
       --text-light: #f8f9fa;
       --text-dark: #212529;
+      --danger: #dc3545;
+      --success: #28a745;
       --bg-light: #f8f9fa;
       --bg-dark: #121212;
       --card-light: #ffffff;
@@ -28,12 +33,11 @@
     body {
       background-color: var(--bg-light);
       color: var(--text-dark);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      overflow: hidden;
+      padding: 2rem 1rem;
     }
 
     body.dark-mode {
@@ -41,65 +45,62 @@
       color: var(--text-light);
     }
 
-    .theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+    .theme-toggle, .home-btn, .back-to-login {
+      position: fixed;
       background: none;
       border: none;
-      color: var(--text-dark);
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       cursor: pointer;
       z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: var(--text-dark);
+      text-decoration: none;
     }
 
-    body.dark-mode .theme-toggle {
-      color: var(--text-light);
+    .theme-toggle {
+      top: 20px;
+      right: 20px;
     }
 
     .home-btn {
-      position: absolute;
       top: 20px;
       left: 20px;
-      background: none;
-      border: none;
-      color: var(--text-dark);
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
-      text-decoration: none;
-    }
-
-    body.dark-mode .home-btn {
-      color: var(--text-light);
     }
 
     .back-to-login {
-      position: absolute;
       top: 20px;
       left: 70px;
-      background: none;
-      border: none;
-      color: var(--text-dark);
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
-      text-decoration: none;
     }
 
+    body.dark-mode .theme-toggle,
+    body.dark-mode .home-btn,
     body.dark-mode .back-to-login {
       color: var(--text-light);
+      background-color: rgba(0, 0, 0, 0.3);
     }
 
     .signup-container {
       display: flex;
       width: 900px;
-      height: 650px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      max-width: 100%;
+      background-color: var(--card-light);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       border-radius: 20px;
       overflow: hidden;
-      z-index: 1;
       position: relative;
+    }
+
+    body.dark-mode .signup-container {
+      background-color: var(--card-dark);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
 
     .signup-image {
@@ -115,6 +116,24 @@
       overflow: hidden;
     }
 
+    .signup-image::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%);
+      background-size: 20px 20px;
+      transform: rotate(30deg);
+      animation: movePattern 40s linear infinite;
+    }
+
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 500px 500px; }
+    }
+
     .signup-image h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -127,6 +146,13 @@
       margin-bottom: 2rem;
       position: relative;
       z-index: 2;
+    }
+
+    .image-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     .signup-form {
@@ -146,11 +172,24 @@
     .signup-form h1 {
       margin-bottom: 1.5rem;
       color: var(--primary-color);
-      font-size: 2.3rem;
+      font-size: 2.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .signup-form h1::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
     }
 
     .input-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       position: relative;
     }
 
@@ -167,13 +206,15 @@
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 500;
+      font-size: 0.9rem;
     }
 
-    .input-group input, .input-group select {
+    .input-group input, 
+    .input-group select {
       width: 100%;
       padding: 12px 15px;
       border: 1px solid #ddd;
-      border-radius: 50px;
+      border-radius: 8px;
       font-size: 1rem;
       transition: all 0.3s;
       background-color: var(--card-light);
@@ -191,14 +232,24 @@
     .input-group select:focus {
       outline: none;
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
     }
 
-    .input-group i {
+    .input-icon {
       position: absolute;
       right: 15px;
       bottom: 15px;
       color: #aaa;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      color: #aaa;
+      cursor: pointer;
+      background: none;
+      border: none;
     }
 
     .terms {
@@ -214,9 +265,44 @@
       accent-color: var(--primary-color);
     }
 
+    .terms label a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .terms label a:hover {
+      text-decoration: underline;
+    }
+
+    .password-strength-meter {
+      height: 4px;
+      width: 100%;
+      background-color: #ddd;
+      margin-top: 0.5rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .password-strength-bar {
+      height: 100%;
+      width: 0;
+      background-color: var(--danger);
+      transition: width 0.3s, background-color 0.3s;
+    }
+
+    .password-feedback {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      color: #666;
+    }
+
+    body.dark-mode .password-feedback {
+      color: #aaa;
+    }
+
     .signup-btn {
       padding: 12px;
-      border-radius: 50px;
+      border-radius: 8px;
       border: none;
       background-color: var(--primary-color);
       color: white;
@@ -224,18 +310,25 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s;
-      margin-bottom: 1rem;
+      margin-top: 0.5rem;
     }
 
     .signup-btn:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 14px rgba(67, 97, 238, 0.2);
+    }
+
+    .signup-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     .login-link {
       text-align: center;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       font-size: 0.9rem;
     }
 
@@ -245,13 +338,33 @@
       font-weight: 600;
     }
 
-    /* 3D Elements */
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .input-group.error input,
+    .input-group.error select {
+      border-color: var(--danger);
+    }
+
+    .input-group.error .error-message {
+      display: block;
+    }
     .scene {
       position: absolute;
       width: 100%;
       height: 100%;
-      transform-style: preserve-3d;
+      top: 0;
+      left: 0;
       z-index: 1;
+      pointer-events: none;
     }
 
     .floating-cube {
@@ -289,109 +402,149 @@
       50% { transform: translateY(10px) rotateX(-20deg) rotateY(80deg); }
       75% { transform: translateY(-15px) rotateX(40deg) rotateY(120deg); }
     }
+    body:not(.dark-mode) .cube-face {
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      color: #333333;
+    }
+    
+    /* Dark mode cubes (existing style will apply) */
+    .dark-mode .cube-face {
+      background-color: rgba(22, 172, 237, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
 
     /* Responsive */
     @media (max-width: 992px) {
       .signup-container {
-        width: 700px;
+        width: 90%;
+        max-width: 700px;
       }
     }
 
     @media (max-width: 768px) {
       .signup-container {
-        width: 90%;
-        height: auto;
+        
         flex-direction: column;
       }
       
       .signup-image {
-        display: none;
+        
+        padding: 3rem 2rem;
+        min-height: 200px;
       }
       
       .signup-form {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
       }
 
       .input-row {
         flex-direction: column;
         gap: 0;
       }
+      
+      .theme-toggle, .home-btn, .back-to-login {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .signup-form h1 {
+        font-size: 1.8rem;
+      }
+      
+      .input-group input, 
+      .input-group select {
+        padding: 10px 12px;
+      }
+      
+      .signup-btn {
+        padding: 10px;
+      }
     }
   </style>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a href="index.html" class="home-btn">
+  <a href="index.html" class="home-btn" title="Home">
     <i class="fas fa-home"></i>
   </a>
   
-  <a href="teacher-login.html" class="back-to-login">
+  <a href="teacher-login.html" class="back-to-login" title="Back to Login">
     <i class="fas fa-sign-in-alt"></i>
   </a>
   
-  <button class="theme-toggle" id="theme-toggle">
+  <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
     <i class="fas fa-moon"></i>
   </button>
   
   <div class="signup-container">
     <div class="signup-image">
+      <i class="fas fa-chalkboard-teacher image-icon"></i>
       <h2>Join EduSync as a Teacher!</h2>
       <p>Create an account to manage classes, track attendance, upload assignments, and monitor student performance.</p>
+    </div>
+    <div class="scene">
+      <div class="floating-cube" style="top: 20%; left: 20%;">
+        <div class="cube-face face-front"><i class="fas fa-user-graduate"></i></div>
+        <div class="cube-face face-back"><i class="fas fa-graduation-cap"></i></div>
+        <div class="cube-face face-right"><i class="fas fa-user-plus"></i></div>
+        <div class="cube-face face-left"><i class="fas fa-id-card"></i></div>
+        <div class="cube-face face-top"><i class="fas fa-pencil-alt"></i></div>
+        <div class="cube-face face-bottom"><i class="fas fa-chart-line"></i></div>
+      </div>
       
-      <div class="scene">
-        <div class="floating-cube" style="top: 20%; left: 20%;">
-          <div class="cube-face face-front"><i class="fas fa-chalkboard-teacher"></i></div>
-          <div class="cube-face face-back"><i class="fas fa-book"></i></div>
-          <div class="cube-face face-right"><i class="fas fa-user-plus"></i></div>
-          <div class="cube-face face-left"><i class="fas fa-id-card"></i></div>
-          <div class="cube-face face-top"><i class="fas fa-pencil-alt"></i></div>
-          <div class="cube-face face-bottom"><i class="fas fa-chart-line"></i></div>
-        </div>
-        
-        <div class="floating-cube" style="top: 60%; left: 60%; animation-delay: -3s;">
-          <div class="cube-face face-front"><i class="fas fa-qrcode"></i></div>
-          <div class="cube-face face-back"><i class="fas fa-tasks"></i></div>
-          <div class="cube-face face-right"><i class="fas fa-clock"></i></div>
-          <div class="cube-face face-left"><i class="fas fa-bell"></i></div>
-          <div class="cube-face face-top"><i class="fas fa-file-alt"></i></div>
-          <div class="cube-face face-bottom"><i class="fas fa-award"></i></div>
-        </div>
+      <div class="floating-cube" style="top: 60%; left: 60%; animation-delay: -3s;">
+        <div class="cube-face face-front"><i class="fas fa-qrcode"></i></div>
+        <div class="cube-face face-back"><i class="fas fa-tasks"></i></div>
+        <div class="cube-face face-right"><i class="fas fa-clock"></i></div>
+        <div class="cube-face face-left"><i class="fas fa-bell"></i></div>
+        <div class="cube-face face-top"><i class="fas fa-file-alt"></i></div>
+        <div class="cube-face face-bottom"><i class="fas fa-trophy"></i></div>
       </div>
     </div>
     
     <div class="signup-form">
       <h1>Teacher Registration</h1>
       
-      <form id="teacher-signup-form">
+      <form id="teacher-signup-form" novalidate>
         <div class="input-row">
           <div class="input-group">
             <label for="first-name">First Name</label>
-            <input type="text" id="first-name" placeholder="Enter your first name" required>
+            <input type="text" id="first-name" name="firstName" placeholder="Enter your first name" required>
+            <i class="fas fa-user input-icon"></i>
+            <div class="error-message">Please enter your first name</div>
           </div>
           
           <div class="input-group">
             <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" placeholder="Enter your last name" required>
+            <input type="text" id="last-name" name="lastName" placeholder="Enter your last name" required>
+            <i class="fas fa-user input-icon"></i>
+            <div class="error-message">Please enter your last name</div>
           </div>
         </div>
         
         <div class="input-group">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" required>
-          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <i class="fas fa-envelope input-icon"></i>
+          <div class="error-message">Please enter a valid email address</div>
         </div>
         
         <div class="input-group">
           <label for="teacher-id">Employee ID</label>
-          <input type="text" id="teacher-id" placeholder="Enter your employee ID" required>
-          <i class="fas fa-id-badge"></i>
+          <input type="text" id="teacher-id" name="teacherId" placeholder="Enter your employee ID" required>
+          <i class="fas fa-id-badge input-icon"></i>
+          <div class="error-message">Please enter your employee ID</div>
         </div>
         
         <div class="input-row">
           <div class="input-group">
             <label for="department">Department</label>
-            <select id="department" required>
+            <select id="department" name="department" required>
               <option value="" disabled selected>Select your department</option>
               <option value="computer-science">Computer Science</option>
               <option value="mechanical">Mechanical Engineering</option>
@@ -400,52 +553,67 @@
               <option value="business">Business Administration</option>
               <option value="arts">Arts & Humanities</option>
             </select>
+            <div class="error-message">Please select your department</div>
           </div>
           
           <div class="input-group">
             <label for="qualification">Highest Qualification</label>
-            <select id="qualification" required>
+            <select id="qualification" name="qualification" required>
               <option value="" disabled selected>Select qualification</option>
               <option value="bachelors">Bachelor's Degree</option>
               <option value="masters">Master's Degree</option>
               <option value="phd">PhD</option>
               <option value="post-doc">Post-Doctoral</option>
             </select>
+            <div class="error-message">Please select your qualification</div>
           </div>
         </div>
         
         <div class="input-group">
           <label for="specialization">Area of Specialization</label>
-          <input type="text" id="specialization" placeholder="Enter your area of specialization" required>
-          <i class="fas fa-book-open"></i>
+          <input type="text" id="specialization" name="specialization" placeholder="Enter your area of specialization" required>
+          <i class="fas fa-book-open input-icon"></i>
+          <div class="error-message">Please enter your area of specialization</div>
         </div>
         
         <div class="input-row">
           <div class="input-group">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Create password" required>
-            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Create password" required>
+            <button type="button" class="password-toggle" id="password-toggle">
+              <i class="fas fa-eye"></i>
+            </button>
+            <div class="password-strength-meter">
+              <div class="password-strength-bar" id="password-strength-bar"></div>
+            </div>
+            <div class="password-feedback" id="password-feedback">Password must be at least 8 characters</div>
+            <div class="error-message">Password must be at least 8 characters</div>
           </div>
           
           <div class="input-group">
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" placeholder="Confirm password" required>
-            <i class="fas fa-lock"></i>
+            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm password" required>
+            <button type="button" class="password-toggle" id="confirm-password-toggle">
+              <i class="fas fa-eye"></i>
+            </button>
+            <div class="error-message">Passwords do not match</div>
           </div>
         </div>
         
         <div class="input-group">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="Enter your phone number">
-          <i class="fas fa-phone"></i>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+          <i class="fas fa-phone input-icon"></i>
+          <div class="error-message">Please enter a valid phone number</div>
         </div>
         
         <div class="terms">
-          <input type="checkbox" id="terms" required>
-          <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="terms-condition.html?source=teacher" onclick="saveFormData('teacher')">Terms & ConditionS</a> and <a href="privacy-policy.html">Privacy Policy</a></label>
         </div>
+        <div class="error-message" id="terms-error">You must agree to the terms and conditions</div>
         
-        <button type="submit" class="signup-btn">Create Account</button>
+        <button type="submit" class="signup-btn" id="signup-btn">Create Account</button>
         
         <div class="login-link">
           <p>Already have an account? <a href="teacher-login.html">Login</a></p>
@@ -480,34 +648,195 @@
       themeIcon.classList.add('fa-sun');
     }
     
-    // Password validation
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirm-password');
-    const signupForm = document.getElementById('teacher-signup-form');
+    // Password visibility toggle
+    const passwordToggle = document.getElementById('password-toggle');
+    const confirmPasswordToggle = document.getElementById('confirm-password-toggle');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
     
-    signupForm.addEventListener('submit', function(e) {
+    passwordToggle.addEventListener('click', () => {
+      togglePasswordVisibility(passwordInput, passwordToggle.querySelector('i'));
+    });
+    
+    confirmPasswordToggle.addEventListener('click', () => {
+      togglePasswordVisibility(confirmPasswordInput, confirmPasswordToggle.querySelector('i'));
+    });
+    
+    function togglePasswordVisibility(input, icon) {
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+    
+    // Password strength meter
+    const strengthBar = document.getElementById('password-strength-bar');
+    const strengthFeedback = document.getElementById('password-feedback');
+    
+    passwordInput.addEventListener('input', updatePasswordStrength);
+    
+    function updatePasswordStrength() {
+      const password = passwordInput.value;
+      let strength = 0;
+      let feedback = '';
+      
+      // Length check
+      if (password.length >= 8) {
+        strength += 25;
+      }
+      
+      // Character variety checks
+      if (password.match(/[A-Z]/)) {
+        strength += 25;
+      }
+      
+      if (password.match(/[0-9]/)) {
+        strength += 25;
+      }
+      
+      if (password.match(/[^A-Za-z0-9]/)) {
+        strength += 25;
+      }
+      
+      // Update the strength bar
+      strengthBar.style.width = strength + '%';
+      
+      // Update color based on strength
+      if (strength <= 25) {
+        strengthBar.style.backgroundColor = 'var(--danger)';
+        feedback = 'Weak password';
+      } else if (strength <= 50) {
+        strengthBar.style.backgroundColor = '#ffc107';
+        feedback = 'Moderate password';
+      } else if (strength <= 75) {
+        strengthBar.style.backgroundColor = '#6c757d';
+        feedback = 'Good password';
+      } else {
+        strengthBar.style.backgroundColor = 'var(--success)';
+        feedback = 'Strong password';
+      }
+      
+      strengthFeedback.textContent = feedback;
+    }
+    
+    // Form validation
+    const form = document.getElementById('teacher-signup-form');
+    const allInputs = form.querySelectorAll('input, select');
+    const signupBtn = document.getElementById('signup-btn');
+    const termsCheckbox = document.getElementById('terms');
+    const termsError = document.getElementById('terms-error');
+    
+    // Validate form on input
+    allInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        validateInput(input);
+        updateSignupButtonState();
+      });
+      
+      input.addEventListener('blur', () => {
+        validateInput(input);
+      });
+    });
+    
+    termsCheckbox.addEventListener('change', () => {
+      if (!termsCheckbox.checked) {
+        termsError.style.display = 'block';
+      } else {
+        termsError.style.display = 'none';
+      }
+      updateSignupButtonState();
+    });
+    
+    function validateInput(input) {
+      const parent = input.parentElement;
+      
+      // Skip validation for optional fields
+      if (!input.required && input.value === '') {
+        parent.classList.remove('error');
+        return true;
+      }
+      
+      let isValid = input.checkValidity();
+      
+      // Additional validation for specific fields
+      if (input.id === 'email' && input.value !== '') {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        isValid = emailPattern.test(input.value);
+      }
+      
+      if (input.id === 'password' && input.value !== '') {
+        isValid = input.value.length >= 8;
+      }
+      
+      if (input.id === 'confirm-password' && input.value !== '') {
+        isValid = input.value === passwordInput.value;
+      }
+      
+      if (input.id === 'phone' && input.value !== '') {
+        const phonePattern = /^\+?[0-9\s\-\(\)]{10,15}$/;
+        isValid = phonePattern.test(input.value);
+      }
+      
+      if (isValid) {
+        parent.classList.remove('error');
+      } else {
+        parent.classList.add('error');
+      }
+      
+      return isValid;
+    }
+    
+    function updateSignupButtonState() {
+      let isFormValid = true;
+      
+      // Check all required fields
+      allInputs.forEach(input => {
+        if (input.required && !validateInput(input)) {
+          isFormValid = false;
+        }
+      });
+      
+      // Check terms checkbox
+      if (!termsCheckbox.checked) {
+        isFormValid = false;
+      }
+      
+      // Enable/disable submit button
+      signupBtn.disabled = !isFormValid;
+    }
+    
+    // Form submission
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Validate passwords match
-      if (password.value !== confirmPassword.value) {
-        alert('Passwords do not match!');
+      // Final validation check
+      let isValid = true;
+      
+      allInputs.forEach(input => {
+        if (!validateInput(input)) {
+          isValid = false;
+        }
+      });
+      
+      if (!termsCheckbox.checked) {
+        termsError.style.display = 'block';
+        isValid = false;
+      }
+      
+      if (!isValid) {
         return;
       }
       
       // Collect form data
-      const formData = {
-        firstName: document.getElementById('first-name').value,
-        lastName: document.getElementById('last-name').value,
-        email: document.getElementById('email').value,
-        teacherId: document.getElementById('teacher-id').value,
-        department: document.getElementById('department').value,
-        qualification: document.getElementById('qualification').value,
-        specialization: document.getElementById('specialization').value,
-        password: password.value,
-        phone: document.getElementById('phone').value
-      };
+      const formData = new FormData(form);
+      const formDataObj = Object.fromEntries(formData.entries());
       
-      // For demo purposes, redirect to success page or login
+      // For demo purposes, show success and redirect
       alert('Account created successfully! Redirecting to login page.');
       window.location.href = 'teacher-login.html';
       
@@ -515,7 +844,7 @@
       // fetch('/api/teacher/register', {
       //   method: 'POST',
       //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
+      //   body: JSON.stringify(formDataObj)
       // })
       // .then(response => response.json())
       // .then(data => {
@@ -525,19 +854,11 @@
       //   } else {
       //     alert(data.message || 'Registration failed. Please try again.');
       //   }
+      // })
+      // .catch(error => {
+      //   console.error('Error:', error);
+      //   alert('An error occurred. Please try again later.');
       // });
-    });
-
-    // Add parallax effect to floating cubes based on mouse movement
-    document.addEventListener('mousemove', (e) => {
-      const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
-      const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
-      
-      const cubes = document.querySelectorAll('.floating-cube');
-      cubes.forEach((cube, index) => {
-        const factor = index * 0.2 + 0.8;
-        cube.style.transform = `translateX(${moveX * factor}px) translateY(${moveY * factor}px) rotateX(${moveY}deg) rotateY(${-moveX}deg)`;
-      });
     });
   </script>
 </body>

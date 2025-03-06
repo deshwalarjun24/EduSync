@@ -97,6 +97,23 @@
       position: relative;
       overflow: hidden;
     }
+    .login-image::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%);
+      background-size: 20px 20px;
+      transform: rotate(30deg);
+      animation: movePattern 40s linear infinite;
+    }
+
+    @keyframes movePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 500px 500px; }
+    }
 
     .login-image h2 {
       font-size: 2rem;
@@ -305,6 +322,7 @@
       height: 100%;
       transform-style: preserve-3d;
       z-index: 1;
+      pointer-events: none;
     }
 
     .floating-cube {
@@ -313,6 +331,7 @@
       height: 80px;
       transform-style: preserve-3d;
       animation: floatAnimation 10s infinite ease-in-out;
+      pointer-events: none;
     }
 
     .cube-face {
@@ -342,29 +361,94 @@
       50% { transform: translateY(10px) rotateX(-20deg) rotateY(80deg); }
       75% { transform: translateY(-15px) rotateX(40deg) rotateY(120deg); }
     }
+    body:not(.dark-mode) .cube-face {
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      color: #333333;
+    }
+    
+    /* Dark mode cubes (existing style will apply) */
+    .dark-mode .cube-face {
+      background-color: rgba(22, 172, 237, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
 
     /* Responsive */
-    @media (max-width: 992px) {
-      .login-container {
-        width: 700px;
-      }
-    }
+    /* Add these styles to reduce the height of the login container */
+@media (max-width: 992px) {
+  .login-container {
+    width: 90%;
+    max-width: 700px;
+  }
+  
+  .login-image {
+    padding: 1.5rem;
+  }
+  
+  .login-form {
+    padding: 2rem 3rem;
+  }
+  
+  .input-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .login-form h1 {
+    margin-bottom: 1.5rem;
+  }
+}
 
-    @media (max-width: 768px) {
-      .login-container {
-        width: 90%;
-        height: auto;
-        flex-direction: column;
-      }
-      
-      .login-image {
-        display: none;
-      }
-      
-      .login-form {
-        padding: 2rem;
-      }
-    }
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  
+  .login-image {
+    display: block;
+    padding: 1rem;
+    min-height: 100px; /* Reduced from 150px */
+  }
+  
+  .login-image h2 {
+    font-size: 1.5rem; /* Smaller heading */
+    margin-bottom: 0.5rem; /* Reduced margin */
+  }
+  
+  .login-image p {
+    font-size: 0.9rem; /* Smaller text */
+    margin-bottom: 0.5rem; /* Reduced margin */
+  }
+  
+  .login-form {
+    padding: 1.5rem;
+  }
+  
+  .login-form h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input-group {
+    margin-bottom: 0.8rem;
+  }
+  
+  .input-group input {
+    padding: 10px 15px; /* Smaller input fields */
+  }
+  
+  .forgot-password {
+    margin-bottom: 1rem;
+  }
+  
+  .login-btn, .signup-btn {
+    padding: 10px; /* Smaller buttons */
+  }
+  
+  .or-divider {
+    margin: 1rem 0;
+  }
+}
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -382,7 +466,7 @@
     <div class="login-image">
       <h2>Welcome Student!</h2>
       <p>Access your assignments, attendance, and course materials in one place.</p>
-      
+    </div>
       <div class="scene">
         <div class="floating-cube" style="top: 20%; left: 20%;">
           <div class="cube-face face-front"><i class="fas fa-book"></i></div>
@@ -410,7 +494,7 @@
           <div class="cube-face face-top"><i class="fas fa-wifi"></i></div>
           <div class="cube-face face-bottom"><i class="fas fa-signal"></i></div>
         </div>
-      </div>
+      
     </div>
     
     <div class="login-form">
@@ -435,7 +519,7 @@
         </div>
         
         <button type="submit" class="login-btn">Login</button>
-        <button type="button" class="signup-btn" onclick="location.href='teacher-signup.html'">Create Account</button>
+        <button type="button" class="signup-btn" onclick="location.href='student-signup.html'">Create Account</button>
         <div class="or-divider">
           <span>OR</span>
         </div>

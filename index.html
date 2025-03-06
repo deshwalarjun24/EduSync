@@ -26,11 +26,15 @@
     }
 
     body {
-      background-color: var(--bg-light);
+      
+      
+      animation: movePattern 40s linear infinite;
       color: var(--text-dark);
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%);
       overflow-x: hidden;
     }
-
+    
+    
     body.dark-mode {
       background-color: var(--bg-dark);
       color: var(--text-light);
@@ -402,23 +406,56 @@
     }
 
     /* Floating particles */
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
+    #particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* So it doesn't block clicks */
+  overflow: hidden;
+}
 
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background-color: rgba(67, 97, 238, 0.2);
-      pointer-events: none;
-    }
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: moveParticle 2s linear infinite;
+}
 
+/* Random motion keyframes */
+@keyframes moveParticle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(var(--x), var(--y));
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(calc(-1 * var(--x)), calc(-1 * var(--y)));
+    opacity: 0.7;
+  }
+}
+
+
+   
+    body:not(.dark-mode) .cube-face {
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      color: #333333;
+    }
+    
+    /* Dark mode cubes (existing style will apply) */
+    .dark-mode .cube-face {
+      background-color: rgba(22, 172, 237, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
     /* Responsive */
     @media (max-width: 768px) {
       .hero-content {
@@ -657,12 +694,41 @@
     }
 
     // Create floating particles
-    const particles = document.getElementById('particles');
-    const particleCount = 50;
-    
-    for (let i = 0; i < particleCount; i++) {
+    const particlesContainer = document.getElementById("particles");
+  const particleCount = 50;
+
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+
+    // Random start position
+    const posX = Math.random() * window.innerWidth;
+    const posY = Math.random() * window.innerHeight;
+    particle.style.left = `${posX}px`;
+    particle.style.top = `${posY}px`;
+
+    // Random animation movement
+    particle.style.setProperty("--x", `${Math.random() * 100 - 50}px`);
+    particle.style.setProperty("--y", `${Math.random() * 100 - 50}px`);
+
+    particlesContainer.appendChild(particle);
+
+    // Remove and recreate particles for a smooth effect
+    setTimeout(() => {
+      particle.remove();
       createParticle();
-    }
+    }, 8000);
+  }
+
+  // Generate particles
+  for (let i = 0; i < particleCount; i++) {
+    createParticle();
+  }
+
+  // Continuously add new particles
+  setInterval(() => {
+    createParticle();
+  }, 1000);
     
     function createParticle() {
       const particle = document.createElement('div');

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions - EduSync</title>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3a0ca3;
+      --accent-color: #4cc9f0;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
+      --bg-light: #f8f9fa;
+      --bg-dark: #121212;
+      --card-light: #ffffff;
+      --card-dark: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      padding-top: 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    /* Header Styles */
+    header {
+      background-color: var(--primary-color);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode header {
+      background-color: var(--secondary-color);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+    }
+
+    .home-btn {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    .terms-container {
+      background-color: var(--card-light);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    body.dark-mode .terms-container {
+      background-color: var(--card-dark);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+      position: relative;
+      font-size: 2rem;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    body.dark-mode .section-title {
+      color: var(--accent-color);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    ul, ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .signup-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .signup-btn {
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .student-signup {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .student-signup:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    .teacher-signup {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    .teacher-signup:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 2rem 0;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .signup-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .signup-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span>EduSync</span>
+      </a>
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="home-btn">
+          <i class="fas fa-home"></i> Home
+        </a>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="terms-container">
+      <h1 class="page-title">Terms and Conditions</h1>
+      
+      <p>Welcome to EduSync, the College Management System. By accessing or using our platform, you agree to be bound by these Terms and Conditions. Please read them carefully before proceeding.</p>
+      
+      <h2 class="section-title">1. Acceptance of Terms</h2>
+      <p>By accessing or using EduSync, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, as well as our Privacy Policy. If you do not agree to these terms, please do not use our platform.</p>
+      
+      <h2 class="section-title">2. User Accounts</h2>
+      <p>EduSync provides role-based access to teachers and students. When creating an account:</p>
+      <ul>
+        <li>You must provide accurate and complete information.</li>
+        <li>You are responsible for maintaining the security of your account credentials.</li>
+        <li>You agree not to share your login information with any third party.</li>
+        <li>You are solely responsible for all activities that occur under your account.</li>
+        <li>Student accounts must be authorized by the institution's administration.</li>
+        <li>Teacher accounts require verification by authorized administrators.</li>
+      </ul>
+      
+      <h2 class="section-title">3. QR Code Attendance System</h2>
+      <p>The QR code-based attendance system is designed to ensure accurate tracking of class attendance:</p>
+      <ul>
+        <li>QR codes are valid only for the specific class session and have limited validity periods.</li>
+        <li>Sharing QR codes with non-attendees is strictly prohibited and may result in disciplinary action.</li>
+        <li>Students must scan the QR code while physically present in the classroom.</li>
+        <li>Attempting to manipulate or falsify attendance records is a violation of these terms.</li>
+      </ul>
+      
+      <h2 class="section-title">4. Assignment Submission</h2>
+      <p>The assignment management system allows for the submission and evaluation of academic work:</p>
+      <ul>
+        <li>Students must adhere to all assignment deadlines as set by teachers.</li>
+        <li>Submitted work must be the student's original work unless properly cited.</li>
+        <li>Plagiarism or academic dishonesty will be subject to the institution's disciplinary policies.</li>
+        <li>Students are responsible for ensuring their submissions are complete and in the correct format.</li>
+        <li>Technical issues should be reported immediately to avoid missing deadlines.</li>
+      </ul>
+      
+      <h2 class="section-title">5. Notes and Materials</h2>
+      <p>Materials shared through the platform are subject to the following conditions:</p>
+      <ul>
+        <li>Content uploaded by teachers is for educational purposes only.</li>
+        <li>Materials may be protected by copyright and should not be distributed outside the platform.</li>
+        <li>Students may download materials for personal educational use only.</li>
+        <li>Redistribution or commercial use of any materials is strictly prohibited.</li>
+      </ul>
+      
+      <h2 class="section-title">6. Privacy and Data Protection</h2>
+      <p>EduSync is committed to protecting your privacy:</p>
+      <ul>
+        <li>Personal information is collected and processed in accordance with our Privacy Policy.</li>
+        <li>Academic records and attendance data are handled with strict confidentiality.</li>
+        <li>User data will not be shared with third parties except as required by law or with explicit consent.</li>
+        <li>Students and teachers have the right to access their personal data stored in the system.</li>
+      </ul>
+      
+      <h2 class="section-title">7. Acceptable Use Policy</h2>
+      <p>When using EduSync, you agree not to:</p>
+      <ul>
+        <li>Engage in any activity that interferes with or disrupts the platform's services.</li>
+        <li>Attempt to gain unauthorized access to any part of the platform or other user accounts.</li>
+        <li>Use the platform to distribute malicious software or content.</li>
+        <li>Upload, post, or share inappropriate, offensive, or illegal content.</li>
+        <li>Impersonate any person or entity, or falsely state or misrepresent your affiliation.</li>
+        <li>Use the platform for any commercial purposes without explicit permission.</li>
+      </ul>
+      
+      <h2 class="section-title">8. Limitation of Liability</h2>
+      <p>EduSync and its operators shall not be liable for:</p>
+      <ul>
+        <li>Any indirect, incidental, special, consequential, or punitive damages.</li>
+        <li>Loss of data, profits, or opportunities resulting from the use of the platform.</li>
+        <li>Service interruptions, errors, or delays in the platform's operation.</li>
+        <li>Any actions taken by educational institutions based on data provided by the platform.</li>
+      </ul>
+      
+      <h2 class="section-title">9. Termination</h2>
+      <p>EduSync reserves the right to suspend or terminate your access to the platform if:</p>
+      <ul>
+        <li>You violate these Terms and Conditions.</li>
+        <li>You engage in activities that compromise the security or integrity of the platform.</li>
+        <li>You are no longer affiliated with the educational institution.</li>
+        <li>Your account has been inactive for an extended period.</li>
+      </ul>
+      
+      <h2 class="section-title">10. Modifications to Terms</h2>
+      <p>EduSync may modify these Terms and Conditions at any time. Users will be notified of significant changes. Continued use of the platform after changes constitutes acceptance of the new terms.</p>
+      
+      <h2 class="section-title">11. Governing Law</h2>
+      <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the jurisdiction in which EduSync operates, without regard to its conflict of law provisions.</p>
+      
+      <h2 class="section-title">12. Contact Information</h2>
+      <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
+      <p>Email: info@edusync.com<br>Phone: +123 456 7890</p>
+      
+      <p><strong>Last Updated: March 6, 2025</strong></p>
+      
+      <div class="signup-links">
+        <button id="continue-btn" class="signup-btn student-signup">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 EduSync. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    // URL se source parameter fetch karna
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source'); 
+
+    let returnPage = "student-signup.html"; // Default student-login
+
+    if (source === "teacher") {
+        returnPage = "teacher-signup.html";
+    }
+
+    document.getElementById("continue-btn").addEventListener("click", function() {
+        window.location.href = returnPage;
+    });
+  </script>
+</body>
+</html>

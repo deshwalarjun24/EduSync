@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - EduSync</title>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3a0ca3;
+      --accent-color: #4cc9f0;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
+      --bg-light: #f8f9fa;
+      --bg-dark: #121212;
+      --card-light: #ffffff;
+      --card-dark: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      padding-top: 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    /* Header Styles */
+    header {
+      background-color: var(--primary-color);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode header {
+      background-color: var(--secondary-color);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+    }
+
+    .home-btn {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    .privacy-container {
+      background-color: var(--card-light);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    body.dark-mode .privacy-container {
+      background-color: var(--card-dark);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+      position: relative;
+      font-size: 2rem;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    body.dark-mode .section-title {
+      color: var(--accent-color);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    ul, ol {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .signup-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .signup-btn {
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .student-signup {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .student-signup:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    .teacher-signup {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    .teacher-signup:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 2rem 0;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .signup-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .signup-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span>EduSync</span>
+      </a>
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="home-btn">
+          <i class="fas fa-home"></i> Home
+        </a>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="privacy-container">
+      <h1 class="page-title">Privacy Policy</h1>
+      
+      <p>Welcome to EduSync's Privacy Policy. This document outlines how we collect, use, store, and protect your personal information. We are committed to ensuring the privacy and security of all users of our College Management System.</p>
+      
+      <h2 class="section-title">1. Information We Collect</h2>
+      <p>EduSync collects the following types of information to provide and improve our services:</p>
+      <ul>
+        <li><strong>Account Information:</strong> Name, email address, phone number, student/teacher ID, profile picture, and login credentials.</li>
+        <li><strong>Academic Information:</strong> Course enrollments, attendance records, assignment submissions, grades, and academic performance data.</li>
+        <li><strong>Usage Information:</strong> Log data, device information, IP address, browser type, pages visited, and time spent on the platform.</li>
+        <li><strong>QR Code Attendance Data:</strong> Time and location stamps when QR codes are scanned for attendance purposes.</li>
+        <li><strong>Uploaded Content:</strong> Documents, assignments, notes, and other materials uploaded to the platform.</li>
+      </ul>
+      
+      <h2 class="section-title">2. How We Use Your Information</h2>
+      <p>We use the collected information for the following purposes:</p>
+      <ul>
+        <li>To provide and maintain the EduSync platform and its features.</li>
+        <li>To create and manage user accounts with appropriate role-based access.</li>
+        <li>To track and record attendance through our QR code-based system.</li>
+        <li>To facilitate assignment submission, grading, and academic performance tracking.</li>
+        <li>To enable sharing of educational materials and resources.</li>
+        <li>To send notifications about deadlines, events, and important announcements.</li>
+        <li>To improve and optimize our services and user experience.</li>
+        <li>To ensure the security and integrity of our platform.</li>
+        <li>To comply with legal obligations.</li>
+      </ul>
+      
+      <h2 class="section-title">3. Data Storage and Security</h2>
+      <p>EduSync implements robust security measures to protect your information:</p>
+      <ul>
+        <li>All data transmitted between your device and our servers is encrypted using industry-standard SSL/TLS protocols.</li>
+        <li>User passwords are stored in an encrypted format and are never accessible in plain text.</li>
+        <li>We employ role-based access controls to ensure that information is accessible only to authorized users.</li>
+        <li>Regular security audits and vulnerability assessments are conducted to identify and address potential security risks.</li>
+        <li>Academic records and personal information are stored in secure, backed-up databases with restricted access.</li>
+        <li>QR code attendance data is secured and can only be accessed by authorized teachers and administrators.</li>
+      </ul>
+      
+      <h2 class="section-title">4. Data Sharing and Disclosure</h2>
+      <p>EduSync does not sell, trade, or rent your personal information to third parties. We may share information in the following limited circumstances:</p>
+      <ul>
+        <li><strong>With Educational Institutions:</strong> We share relevant data with the affiliated educational institution for administrative and academic purposes.</li>
+        <li><strong>Service Providers:</strong> We may engage trusted third-party service providers to assist in operating our platform, who are bound by confidentiality obligations.</li>
+        <li><strong>Legal Requirements:</strong> We may disclose information if required by law, regulation, or legal process.</li>
+        <li><strong>With User Consent:</strong> We may share information with third parties when we have your explicit consent to do so.</li>
+      </ul>
+      
+      <h2 class="section-title">5. User Rights and Controls</h2>
+      <p>As an EduSync user, you have the following rights regarding your personal information:</p>
+      <ul>
+        <li><strong>Access:</strong> You can access and view your personal information stored in your account profile.</li>
+        <li><strong>Correction:</strong> You can update and correct inaccuracies in your personal information through your account settings.</li>
+        <li><strong>Data Portability:</strong> You can request a copy of your personal data in a structured, commonly used format.</li>
+        <li><strong>Deletion:</strong> You can request the deletion of your account and associated data, subject to academic record retention requirements.</li>
+        <li><strong>Object or Restrict:</strong> You can object to or request restriction of processing of your personal information in certain circumstances.</li>
+      </ul>
+      <p>To exercise these rights, please contact us using the information provided in the "Contact Us" section.</p>
+      
+      <h2 class="section-title">6. QR Code Attendance Privacy</h2>
+      <p>Our QR code-based attendance system is designed with privacy considerations:</p>
+      <ul>
+        <li>QR codes are valid only for specific class sessions with limited validity periods.</li>
+        <li>Attendance data is accessible only to authorized teachers and administrators.</li>
+        <li>Location data collected during attendance marking is used solely for verification purposes.</li>
+        <li>Students can view their own attendance records but not those of other students.</li>
+      </ul>
+      
+      <h2 class="section-title">7. Assignment and Notes Privacy</h2>
+      <p>Regarding assignments and educational materials:</p>
+      <ul>
+        <li>Submitted assignments are visible only to the student who submitted them and their respective teachers.</li>
+        <li>Teachers can access assignments only for courses they teach.</li>
+        <li>Notes and study materials uploaded by teachers are available only to enrolled students.</li>
+        <li>All uploaded content is stored securely with appropriate access controls.</li>
+      </ul>
+      
+      <h2 class="section-title">8. Cookies and Similar Technologies</h2>
+      <p>EduSync uses cookies and similar technologies to enhance user experience and collect usage information:</p>
+      <ul>
+        <li><strong>Essential Cookies:</strong> Required for the platform to function properly, including authentication and security.</li>
+        <li><strong>Preference Cookies:</strong> Remember user preferences and settings, such as language preference and theme (light/dark mode).</li>
+        <li><strong>Analytics Cookies:</strong> Help us understand how users interact with the platform to improve functionality and design.</li>
+      </ul>
+      <p>You can manage cookie preferences through your browser settings, although disabling certain cookies may affect platform functionality.</p>
+      
+      <h2 class="section-title">9. Children's Privacy</h2>
+      <p>EduSync is designed for use by college students and faculty. We do not knowingly collect information from children under 13. If we discover that we have collected personal information from a child under 13, we will promptly delete that information.</p>
+      
+      <h2 class="section-title">10. Data Retention</h2>
+      <p>We retain personal information for as long as necessary to provide our services and fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required by law. Academic records may be retained in accordance with educational institution policies and applicable regulations.</p>
+      
+      <h2 class="section-title">11. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify users of any material changes through the platform or via email. Continued use of EduSync after policy changes constitutes acceptance of the updated policy.</p>
+      
+      <h2 class="section-title">12. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:</p>
+      <p>Email: privacy@edusync.com<br>Phone: +123 456 7890</p>
+      
+      <p><strong>Last Updated: March 6, 2025</strong></p>
+      
+      <div class="signup-links">
+        <button id="continue-btn" class="signup-btn student-signup">Continue</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 EduSync. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    // URL se source parameter fetch karna
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source'); 
+
+    let returnPage = "student-signup.html"; // Default student-login
+
+    if (source === "teacher") {
+        returnPage = "teacher-signup.html";
+    }
+
+    document.getElementById("continue-btn").addEventListener("click", function() {
+        window.location.href = returnPage;
+    });
+  </script>
+</body>
+</html>
