@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Signup - EduSync</title>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3a0ca3;
+      --accent-color: #4cc9f0;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
+      --bg-light: #f8f9fa;
+      --bg-dark: #121212;
+      --card-light: #ffffff;
+      --card-dark: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    body.dark-mode .theme-toggle {
+      color: var(--text-light);
+    }
+
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+      text-decoration: none;
+    }
+
+    body.dark-mode .home-btn {
+      color: var(--text-light);
+    }
+    .back-to-login {
+      position: absolute;
+      top: 20px;
+      left: 70px;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+      text-decoration: none;
+    }
+
+    body.dark-mode .back-to-login {
+      color: var(--text-light);
+    }
+
+    .signup-container {
+      display: flex;
+      width: 900px;
+      height: 650px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: 1;
+      position: relative;
+    }
+
+    .signup-image {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signup-image h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .signup-image p {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .signup-form {
+      flex: 1;
+      padding: 2rem;
+      background-color: var(--card-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    body.dark-mode .signup-form {
+      background-color: var(--card-dark);
+    }
+
+    .signup-form h1 {
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      font-size: 2.3rem;
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .input-row .input-group {
+      flex: 1;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: all 0.3s;
+      background-color: var(--card-light);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode .input-group input, 
+    body.dark-mode .input-group select {
+      border-color: #444;
+      background-color: var(--card-dark);
+      color: var(--text-light);
+    }
+
+    .input-group input:focus, 
+    .input-group select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      color: #aaa;
+    }
+
+    .terms {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+
+    .terms input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary-color);
+    }
+
+    .signup-btn {
+      padding: 12px;
+      border-radius: 50px;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 1rem;
+    }
+
+    .signup-btn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .login-link a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* 3D Elements */
+    .scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      z-index: 1;
+    }
+
+    .floating-cube {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      transform-style: preserve-3d;
+      animation: floatAnimation 10s infinite ease-in-out;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      backface-visibility: visible;
+    }
+
+    .face-front { transform: translateZ(40px); }
+    .face-back { transform: rotateY(180deg) translateZ(40px); }
+    .face-right { transform: rotateY(90deg) translateZ(40px); }
+    .face-left { transform: rotateY(-90deg) translateZ(40px); }
+    .face-top { transform: rotateX(90deg) translateZ(40px); }
+    .face-bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+    @keyframes floatAnimation {
+      0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+      25% { transform: translateY(-20px) rotateX(30deg) rotateY(40deg); }
+      50% { transform: translateY(10px) rotateX(-20deg) rotateY(80deg); }
+      75% { transform: translateY(-15px) rotateX(40deg) rotateY(120deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .signup-container {
+        width: 700px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .signup-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+      }
+      
+      .signup-image {
+        display: none;
+      }
+      
+      .signup-form {
+        padding: 2rem;
+      }
+
+      .input-row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="home-btn">
+    <i class="fas fa-home"></i>
+  </a>
+  <a href="student-login.html" class="back-to-login">
+    <i class="fas fa-sign-in-alt"></i>
+  </a>
+  
+  
+  <button class="theme-toggle" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+  
+  <div class="signup-container">
+    <div class="signup-image">
+      <h2>Join EduSync!</h2>
+      <p>Create an account to access your college resources, track your attendance, and manage your academic journey.</p>
+      
+      <div class="scene">
+        <div class="floating-cube" style="top: 20%; left: 20%;">
+          <div class="cube-face face-front"><i class="fas fa-user-graduate"></i></div>
+          <div class="cube-face face-back"><i class="fas fa-graduation-cap"></i></div>
+          <div class="cube-face face-right"><i class="fas fa-user-plus"></i></div>
+          <div class="cube-face face-left"><i class="fas fa-id-card"></i></div>
+          <div class="cube-face face-top"><i class="fas fa-pencil-alt"></i></div>
+          <div class="cube-face face-bottom"><i class="fas fa-chart-line"></i></div>
+        </div>
+        
+        <div class="floating-cube" style="top: 60%; left: 60%; animation-delay: -3s;">
+          <div class="cube-face face-front"><i class="fas fa-qrcode"></i></div>
+          <div class="cube-face face-back"><i class="fas fa-tasks"></i></div>
+          <div class="cube-face face-right"><i class="fas fa-clock"></i></div>
+          <div class="cube-face face-left"><i class="fas fa-bell"></i></div>
+          <div class="cube-face face-top"><i class="fas fa-file-alt"></i></div>
+          <div class="cube-face face-bottom"><i class="fas fa-trophy"></i></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="signup-form">
+      <h1>Student Registration</h1>
+      
+      <form id="student-signup-form">
+        <div class="input-row">
+          <div class="input-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter your first name" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Enter your last name" required>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+        
+        <div class="input-group">
+          <label for="student-id">Student ID</label>
+          <input type="text" id="student-id" placeholder="Enter your student ID" required>
+          <i class="fas fa-id-card"></i>
+        </div>
+        
+        <div class="input-group">
+          <label for="department">Department</label>
+          <select id="department" required>
+            <option value="" disabled selected>Select your department</option>
+            <option value="computer-science">Computer Science</option>
+            <option value="mechanical">Mechanical Engineering</option>
+            <option value="electrical">Electrical Engineering</option>
+            <option value="civil">Civil Engineering</option>
+            <option value="business">Business Administration</option>
+            <option value="arts">Arts & Humanities</option>
+          </select>
+        </div>
+        
+        <div class="input-row">
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create password" required>
+            <i class="fas fa-lock"></i>
+          </div>
+          
+          <div class="input-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Confirm password" required>
+            <i class="fas fa-lock"></i>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number">
+          <i class="fas fa-phone"></i>
+        </div>
+        
+        <div class="terms">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+        
+        <button type="submit" class="signup-btn">Create Account</button>
+        
+        <div class="login-link">
+          <p>Already have an account? <a href="student-login.html">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    
+    // Password validation
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm-password');
+    const signupForm = document.getElementById('student-signup-form');
+    
+    signupForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate passwords match
+      if (password.value !== confirmPassword.value) {
+        alert('Passwords do not match!');
+        return;
+      }
+      
+      // Collect form data
+      const formData = {
+        firstName: document.getElementById('first-name').value,
+        lastName: document.getElementById('last-name').value,
+        email: document.getElementById('email').value,
+        studentId: document.getElementById('student-id').value,
+        department: document.getElementById('department').value,
+        password: password.value,
+        phone: document.getElementById('phone').value
+      };
+      
+      // For demo purposes, redirect to success page or login
+      alert('Account created successfully! Redirecting to login page.');
+      window.location.href = 'student-login.html';
+      
+      // In a real application, you would send this data to your backend
+      // fetch('/api/student/register', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // })
+      // .then(response => response.json())
+      // .then(data => {
+      //   if (data.success) {
+      //     alert('Account created successfully! Redirecting to login page.');
+      //     window.location.href = 'student-login.html';
+      //   } else {
+      //     alert(data.message || 'Registration failed. Please try again.');
+      //   }
+      // });
+    });
+
+    // Add parallax effect to floating cubes based on mouse movement
+    document.addEventListener('mousemove', (e) => {
+      const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+      const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
+      
+      const cubes = document.querySelectorAll('.floating-cube');
+      cubes.forEach((cube, index) => {
+        const factor = index * 0.2 + 0.8;
+        cube.style.transform = `translateX(${moveX * factor}px) translateY(${moveY * factor}px) rotateX(${moveY}deg) rotateY(${-moveX}deg)`;
+      });
+    });
+  </script>
+</body>
+</html>

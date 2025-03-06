@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Login - EduSync</title>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3a0ca3;
+      --accent-color: #4cc9f0;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
+      --bg-light: #f8f9fa;
+      --bg-dark: #121212;
+      --card-light: #ffffff;
+      --card-dark: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    body.dark-mode .theme-toggle {
+      color: var(--text-light);
+    }
+
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+      text-decoration: none;
+    }
+
+    body.dark-mode .home-btn {
+      color: var(--text-light);
+    }
+
+    .login-container {
+      display: flex;
+      width: 900px;
+      height: 600px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: 1;
+      position: relative;
+    }
+
+    .login-image {
+      flex: 1;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-image h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-image p {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-form {
+      flex: 1;
+      padding: 3rem;
+      background-color: var(--card-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    body.dark-mode .login-form {
+      background-color: var(--card-dark);
+    }
+
+    .login-form h1 {
+      margin-bottom: 2rem;
+      color: var(--secondary-color);
+      font-size: 2.5rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: all 0.3s;
+      background-color: var(--card-light);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode .input-group input {
+      border-color: #444;
+      background-color: var(--card-dark);
+      color: var(--text-light);
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(58, 12, 163, 0.3);
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      color: #aaa;
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin-bottom: 1.5rem;
+    }
+
+    .forgot-password a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .login-btn {
+      padding: 12px;
+      border-radius: 50px;
+      border: none;
+      background-color: var(--secondary-color);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(58, 12, 163, 0.3);
+    }
+
+    .signup-btn {
+      padding: 10px;
+      border-radius: 50px;
+      border: 1px solid var(--secondary-color);
+      background-color: transparent;
+      color: var(--secondary-color);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+      
+    }
+
+    .signup-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(58, 12, 163, 0.2);
+    }
+
+    body.dark-mode .signup-btn {
+      color: var(--text-light);
+      border-color: var(--text-light);
+    }
+
+    body.dark-mode .signup-btn:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(58, 12, 163, 0.3);
+    }
+
+    .or-divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      color: #aaa;
+    }
+
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: #ddd;
+    }
+
+    body.dark-mode .or-divider::before,
+    body.dark-mode .or-divider::after {
+      background-color: #444;
+    }
+
+    .or-divider span {
+      padding: 0 10px;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ddd;
+      color: #555;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    body.dark-mode .social-btn {
+      border-color: #444;
+      color: #ddd;
+    }
+
+    .social-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      border-color: var(--secondary-color);
+    }
+
+    /* 3D Elements */
+    .scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      z-index: 1;
+    }
+
+    .floating-cube {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      transform-style: preserve-3d;
+      animation: floatAnimation 10s infinite ease-in-out;
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      backface-visibility: visible;
+    }
+
+    .face-front { transform: translateZ(40px); }
+    .face-back { transform: rotateY(180deg) translateZ(40px); }
+    .face-right { transform: rotateY(90deg) translateZ(40px); }
+    .face-left { transform: rotateY(-90deg) translateZ(40px); }
+    .face-top { transform: rotateX(90deg) translateZ(40px); }
+    .face-bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+    @keyframes floatAnimation {
+      0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+      25% { transform: translateY(-20px) rotateX(30deg) rotateY(40deg); }
+      50% { transform: translateY(10px) rotateX(-20deg) rotateY(80deg); }
+      75% { transform: translateY(-15px) rotateX(40deg) rotateY(120deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .login-container {
+        width: 700px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .login-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+      }
+      
+      .login-image {
+        display: none;
+      }
+      
+      .login-form {
+        padding: 2rem;
+      }
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="home-btn">
+    <i class="fas fa-home"></i>
+  </a>
+  
+  <button class="theme-toggle" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+  
+  <div class="login-container">
+    <div class="login-image">
+      <h2>Welcome Teacher!</h2>
+      <p>Manage your classes, assignments, attendance, and student performance in one powerful platform.</p>
+      
+      <div class="scene">
+        <div class="floating-cube" style="top: 20%; left: 20%;">
+          <div class="cube-face face-front"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="cube-face face-back"><i class="fas fa-graduation-cap"></i></div>
+          <div class="cube-face face-right"><i class="fas fa-users"></i></div>
+          <div class="cube-face face-left"><i class="fas fa-calendar-alt"></i></div>
+          <div class="cube-face face-top"><i class="fas fa-tasks"></i></div>
+          <div class="cube-face face-bottom"><i class="fas fa-chart-line"></i></div>
+        </div>
+        
+        <div class="floating-cube" style="top: 60%; left: 60%; animation-delay: -3s;">
+          <div class="cube-face face-front"><i class="fas fa-qrcode"></i></div>
+          <div class="cube-face face-back"><i class="fas fa-clipboard-check"></i></div>
+          <div class="cube-face face-right"><i class="fas fa-clock"></i></div>
+          <div class="cube-face face-left"><i class="fas fa-bell"></i></div>
+          <div class="cube-face face-top"><i class="fas fa-file-alt"></i></div>
+          <div class="cube-face face-bottom"><i class="fas fa-award"></i></div>
+        </div>
+        
+        <div class="floating-cube" style="top: 40%; left: 30%; animation-delay: -5s;">
+          <div class="cube-face face-front"><i class="fas fa-laptop"></i></div>
+          <div class="cube-face face-back"><i class="fas fa-book"></i></div>
+          <div class="cube-face face-right"><i class="fas fa-tablet-alt"></i></div>
+          <div class="cube-face face-left"><i class="fas fa-desktop"></i></div>
+          <div class="cube-face face-top"><i class="fas fa-wifi"></i></div>
+          <div class="cube-face face-bottom"><i class="fas fa-upload"></i></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="login-form">
+      <h1 style="color: #4361ee;">Teacher Login</h1>
+      
+      <form id="teacher-login-form">
+        <div class="input-group">
+          <label for="teacher-id">Teacher ID</label>
+          <input type="text" id="teacher-id" placeholder="Enter your teacher ID" required>
+          <i class="fas fa-user"></i>
+        </div>
+        
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <i class="fas fa-lock"></i>
+        </div>
+        
+        <div class="forgot-password">
+          <a href="forget-password.html?source=teacher" style="color: #4361ee;">Forgot Password?</a>
+
+        </div>
+        
+        <button type="submit" class="login-btn">Login</button>
+        <button type="button" class="signup-btn" onclick="location.href='teacher-signup.html'">Create Account</button>
+        
+        <div class="or-divider">
+          <span>OR</span>
+        </div>
+        
+        <div class="social-login">
+          <a href="#" class="social-btn">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#" class="social-btn">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-btn">
+            <i class="fab fa-apple"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+    
+    // Login form submission
+    const loginForm = document.getElementById('teacher-login-form');
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const teacherId = document.getElementById('teacher-id').value;
+      const password = document.getElementById('password').value;
+      
+      if (teacherId && password) {
+        // For demo purposes, redirect to teacher dashboard
+        window.location.href = 'teacher-dashboard.html';
+        
+        // In a real application, you would validate credentials with a backend
+        // fetch('/api/teacher/login', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ teacherId, password })
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //   if (data.success) {
+        //     window.location.href = 'teacher-dashboard.html';
+        //   } else {
+        //     alert('Invalid credentials. Please try again.');
+        //   }
+        // });
+      }
+    });
+
+    // Add parallax effect to floating cubes based on mouse movement
+    document.addEventListener('mousemove', (e) => {
+      const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+      const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
+      
+      const cubes = document.querySelectorAll('.floating-cube');
+      cubes.forEach((cube, index) => {
+        const factor = index * 0.2 + 0.8;
+        cube.style.transform = `translateX(${moveX * factor}px) translateY(${moveY * factor}px) rotateX(${moveY}deg) rotateY(${-moveX}deg)`;
+      });
+    });
+  </script>
+</body>
+</html>
