@@ -1,0 +1,187 @@
+/* 
+   EduSync - College Management System 
+   Signup Page Stylesheet
+*/
+
+/* ===== Signup Container Styles ===== */
+.signup-container {
+    padding: 30px 40px;
+}
+
+/* ===== Form Layout Styles ===== */
+.row-fields {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.row-fields .input-field {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* ===== Password Hint ===== */
+.password-hint {
+    display: block;
+    font-size: 12px;
+    color: #858796;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/* ===== Terms Agreement ===== */
+.terms-agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.terms-agreement input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+}
+
+.terms-agreement label {
+    color: #5a5c69;
+    line-height: 1.4;
+}
+
+.terms-agreement a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+.terms-agreement a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Signup Link ===== */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #5a5c69;
+}
+
+.signup-link a {
+    color: #4e73df;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Input Field Styles ===== */
+.input-field select {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    border: 1px solid #e3e6f0;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #5a5c69;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b7b9cc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+}
+
+.input-field select:focus {
+    outline: none;
+    border-color: #4e73df;
+    box-shadow: 0 0 0 2px rgba(78, 115, 223, 0.2);
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+    .signup-container {
+        padding: 20px 15px;
+        overflow-y: auto;
+    }
+    
+    .row-fields {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .row-fields .input-field {
+        width: 100%;
+    }
+    
+    .login-tabs {
+        flex-direction: row;
+    }
+    
+    .tab-btn {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+    
+    .terms-agreement {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .signup-container {
+        padding: 15px 10px;
+    }
+    
+    .login-form h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .input-field label {
+        font-size: 14px;
+    }
+    
+    .input-with-icon input,
+    .input-with-icon select {
+        padding: 12px 15px 12px 40px;
+        font-size: 14px;
+    }
+    
+    .terms-agreement {
+        flex-direction: row;
+        font-size: 13px;
+    }
+    
+    .terms-agreement input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .signup-link {
+        font-size: 13px;
+    }
+    
+    .login-illustration {
+        padding: 25px 15px;
+    }
+    
+    .illustration-content h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .illustration-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .feature-list li {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+} 

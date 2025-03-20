@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Teacher Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Dr. Rajesh Sharma</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="teacher-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li>
+                        <a href="assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li class="active">
+                        <a href="notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="students.html"><i class="fas fa-user-graduate"></i> Students</a>
+                    </li>
+                    <li>
+                        <a href="performance.html"><i class="fas fa-chart-line"></i> Performance</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">5</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Class Notes</h1>
+                        <p>Create, share, and manage learning materials with students. Upload documents, lecture notes, study materials, and monitor student engagement with your content. All notes are organized by class and type for easy access.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Upload/Create Notes -->
+                        <div class="dashboard-card notes-creator">
+                            <div class="card-header">
+                                <h3>Create New Notes</h3>
+                            </div>
+                            <div class="notes-form">
+                                <div class="form-group">
+                                    <label for="notesTitle">Notes Title</label>
+                                    <input type="text" id="notesTitle" placeholder="Enter title of notes">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="notesClass">Class</label>
+                                        <select id="notesClass">
+                                            <option>Web Development</option>
+                                            <option>Data Structures</option>
+                                            <option>Database Management</option>
+                                            <option>Algorithm Design</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="notesType">Type</label>
+                                        <select id="notesType">
+                                            <option>Lecture Notes</option>
+                                            <option>Study Material</option>
+                                            <option>Reference Material</option>
+                                            <option>Practice Questions</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="notesDesc">Description</label>
+                                    <textarea id="notesDesc" placeholder="Enter a detailed description of what these notes cover, key topics, related assignments, etc. This helps students understand the content before accessing it."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Upload Files</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="notesFiles" multiple>
+                                        <label for="notesFiles"><i class="fas fa-cloud-upload-alt"></i> Upload Files</label>
+                                    </div>
+                                    <p class="file-info">You can upload PDF, DOCX, PPT, or Image files (Max: 10MB each)</p>
+                                </div>
+                                <button class="btn btn-primary"><i class="fas fa-plus"></i> Create Notes</button>
+                            </div>
+                        </div>
+
+                        <!-- Recent Notes -->
+                        <div class="dashboard-card recent-notes">
+                            <div class="card-header">
+                                <h3>Recent Notes</h3>
+                                <select class="period-select">
+                                    <option>All Classes</option>
+                                    <option>Web Development</option>
+                                    <option>Data Structures</option>
+                                    <option>Database Management</option>
+                                </select>
+                            </div>
+                            <div class="notes-list">
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Introduction to CSS Flexbox</h4>
+                                        <p class="notes-class">Web Development</p>
+                                        <p class="notes-info">Lecture Notes • Uploaded 2 days ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-powerpoint"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Binary Search Trees</h4>
+                                        <p class="notes-class">Data Structures</p>
+                                        <p class="notes-info">Lecture Notes • Uploaded 3 days ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-word"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Database Normalization</h4>
+                                        <p class="notes-class">Database Management</p>
+                                        <p class="notes-info">Study Material • Uploaded 5 days ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Advanced JavaScript Concepts</h4>
+                                        <p class="notes-class">Web Development</p>
+                                        <p class="notes-info">Practice Questions • Uploaded 1 week ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-icon"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Student Engagement -->
+                        <div class="dashboard-card notes-engagement">
+                            <div class="card-header">
+                                <h3>Student Engagement</h3>
+                            </div>
+                            <div class="engagement-summary">
+                                <div class="engagement-stat">
+                                    <div class="stat-value">87%</div>
+                                    <div class="stat-label">Notes Viewed</div>
+                                </div>
+                                <div class="engagement-stat">
+                                    <div class="stat-value">42%</div>
+                                    <div class="stat-label">Downloaded</div>
+                                </div>
+                                <div class="engagement-stat">
+                                    <div class="stat-value">28</div>
+                                    <div class="stat-label">Comments</div>
+                                </div>
+                            </div>
+                            <div class="engagement-details">
+                                <h4>Most Engaged Students</h4>
+                                <ul class="engagement-list">
+                                    <li class="engagement-item">
+                                        <div class="student-info">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            <div>
+                                                <h5>Kritika Joshi</h5>
+                                                <p>Viewed 18 notes</p>
+                                            </div>
+                                        </div>
+                                        <div class="engagement-score">95%</div>
+                                    </li>
+                                    <li class="engagement-item">
+                                        <div class="student-info">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            <div>
+                                                <h5>Aryan Singh</h5>
+                                                <p>Viewed 16 notes</p>
+                                            </div>
+                                        </div>
+                                        <div class="engagement-score">90%</div>
+                                    </li>
+                                    <li class="engagement-item">
+                                        <div class="student-info">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            <div>
+                                                <h5>Divya Patel</h5>
+                                                <p>Viewed 15 notes</p>
+                                            </div>
+                                        </div>
+                                        <div class="engagement-score">85%</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Notes Feedback -->
+                        <div class="dashboard-card notes-feedback">
+                            <div class="card-header">
+                                <h3>Recent Comments</h3>
+                            </div>
+                            <div class="feedback-list">
+                                <div class="feedback-item">
+                                    <div class="feedback-header">
+                                        <div class="student-info">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            <div>
+                                                <h5>Vikas Reddy</h5>
+                                                <p>On: Introduction to CSS Flexbox</p>
+                                            </div>
+                                        </div>
+                                        <div class="feedback-time">2 hours ago</div>
+                                    </div>
+                                    <div class="feedback-content">
+                                        <p>Thank you sir, these notes helped me understand flexbox much better. Could you please include more examples in the next update?</p>
+                                    </div>
+                                    <div class="feedback-actions">
+                                        <button class="btn btn-sm"><i class="fas fa-reply"></i> Reply</button>
+                                    </div>
+                                </div>
+                                <div class="feedback-item">
+                                    <div class="feedback-header">
+                                        <div class="student-info">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            <div>
+                                                <h5>Meera Iyer</h5>
+                                                <p>On: Binary Search Trees</p>
+                                            </div>
+                                        </div>
+                                        <div class="feedback-time">5 hours ago</div>
+                                    </div>
+                                    <div class="feedback-content">
+                                        <p>I found some sections difficult to understand. Could we discuss more about tree traversal methods in the next class?</p>
+                                    </div>
+                                    <div class="feedback-actions">
+                                        <button class="btn btn-sm"><i class="fas fa-reply"></i> Reply</button>
+                                    </div>
+                                </div>
+                                <div class="feedback-item">
+                                    <div class="feedback-header">
+                                        <div class="student-info">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            <div>
+                                                <h5>Rohit Tiwari</h5>
+                                                <p>On: Database Normalization</p>
+                                            </div>
+                                        </div>
+                                        <div class="feedback-time">1 day ago</div>
+                                    </div>
+                                    <div class="feedback-content">
+                                        <p>The examples were very helpful! I was confused about BCNF before, but it's clear now. Thank you.</p>
+                                    </div>
+                                    <div class="feedback-actions">
+                                        <button class="btn btn-sm"><i class="fas fa-reply"></i> Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

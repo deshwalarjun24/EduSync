@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Student Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Aryan Patel</h3>
+                    <p>Computer Science • Semester 4</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="student-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="student-attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li>
+                        <a href="student-assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li>
+                        <a href="student-notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="student-timetable.html"><i class="fas fa-calendar-alt"></i> Timetable</a>
+                    </li>
+                    <li>
+                        <a href="student-exams.html"><i class="fas fa-pen"></i> Exams</a>
+                    </li>
+                    <li>
+                        <a href="student-results.html"><i class="fas fa-chart-line"></i> Results</a>
+                    </li>
+                    <li>
+                        <a href="student-settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Attendance Management</h1>
+                        <p>Mark your attendance for classes by scanning QR codes shared by your professors. View your attendance history, statistics, and upcoming class schedule all in one place.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- QR Scanner -->
+                        <div class="dashboard-card qr-scanner-container">
+                            <div class="card-header">
+                                <h3>Scan QR Code</h3>
+                            </div>
+                            <div class="qr-scanner">
+                                <div class="scanner-placeholder">
+                                    <i class="fas fa-qrcode"></i>
+                                    <h3>Scan Attendance QR Code</h3>
+                                    <p>Point your camera at the QR code displayed by your teacher</p>
+                                    <button class="btn btn-primary" id="openCameraBtn"><i class="fas fa-camera"></i> Open Camera</button>
+                                </div>
+                            </div>
+                            <div class="scanner-instructions">
+                                <h3>How it works</h3>
+                                <ol>
+                                    <li>Teacher generates a unique QR code for the class session</li>
+                                    <li>Open the scanner using the button above</li>
+                                    <li>Allow camera access when prompted</li>
+                                    <li>Point your device's camera at the QR code</li>
+                                    <li>Your attendance will be marked automatically</li>
+                                </ol>
+                                <div class="time-limit-note">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <p>QR codes are only valid for a limited time (usually 5 minutes) after generation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attendance Summary -->
+                        <div class="dashboard-card attendance-summary">
+                            <div class="summary-header">
+                                <h3>Attendance Statistics</h3>
+                                <select class="period-select">
+                                    <option>Current Semester</option>
+                                    <option>Last Month</option>
+                                    <option>This Week</option>
+                                </select>
+                            </div>
+                            <div class="summary-overview">
+                                <div class="summary-stat">
+                                    <div class="stat-circle">
+                                        <svg width="100" height="100" viewBox="0 0 100 100">
+                                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                            <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="92"></circle>
+                                        </svg>
+                                        <span class="percentage">92%</span>
+                                    </div>
+                                    <p>Overall Attendance</p>
+                                </div>
+                                <div class="summary-details">
+                                    <div class="detail-item">
+                                        <span class="detail-value present">128</span>
+                                        <span class="detail-label">Present</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value late">7</span>
+                                        <span class="detail-label">Late</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value absent">4</span>
+                                        <span class="detail-label">Absent</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value">139</span>
+                                        <span class="detail-label">Total Classes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subject-wise Attendance -->
+                        <div class="dashboard-card subject-attendance">
+                            <div class="card-header">
+                                <h3>Subject-wise Attendance</h3>
+                            </div>
+                            <div class="chart-container">
+                                <div class="chart-placeholder">
+                                    <div class="bar-chart">
+                                        <div class="chart-bar" style="height: 95%;" title="Database Management">
+                                            <span>DBMS</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 88%;" title="Web Development">
+                                            <span>Web Dev</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 92%;" title="Data Structures">
+                                            <span>DS</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 78%;" title="Algorithm Design">
+                                            <span>Algo</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 85%;" title="Software Engineering">
+                                            <span>SE</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart-label">Attendance Percentage by Subject</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attendance History -->
+                        <div class="dashboard-card table-container">
+                            <div class="card-header">
+                                <h3>Recent Attendance</h3>
+                                <div class="filter-group">
+                                    <select class="filter-select">
+                                        <option>All Subjects</option>
+                                        <option>Web Development</option>
+                                        <option>Data Structures</option>
+                                        <option>Database Management</option>
+                                        <option>Algorithm Design</option>
+                                    </select>
+                                    <input type="date" class="date-select" value="2023-07-15">
+                                </div>
+                            </div>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Date</th>
+                                        <th>Check-in Time</th>
+                                        <th>Instructor</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>11:02 AM</td>
+                                        <td>Prof. Anika Desai</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data Structures</td>
+                                        <td>July 14, 2023</td>
+                                        <td>09:05 AM</td>
+                                        <td>Dr. Vikram Singh</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Database Management</td>
+                                        <td>July 14, 2023</td>
+                                        <td>02:12 PM</td>
+                                        <td>Dr. Rajesh Sharma</td>
+                                        <td><span class="status-badge late">Late</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Algorithm Design</td>
+                                        <td>July 13, 2023</td>
+                                        <td>10:00 AM</td>
+                                        <td>Dr. Meera Iyer</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Software Engineering</td>
+                                        <td>July 12, 2023</td>
+                                        <td>--:--</td>
+                                        <td>Prof. Sanjay Gupta</td>
+                                        <td><span class="status-badge absent">Absent</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Web Development</td>
+                                        <td>July 12, 2023</td>
+                                        <td>11:05 AM</td>
+                                        <td>Prof. Anika Desai</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-pagination">
+                                <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                                <span class="pagination-info">Page 1 of 5 (Showing 1-6 of 28 entries)</span>
+                                <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

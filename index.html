@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSync - College Management System</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Edu<span>Sync</span></h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#workflow">Workflow</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Modern College Management System</h1>
+                <p>Streamline academic and administrative processes with our comprehensive web-based platform. Designed for teachers and students to manage attendance, assignments, notes, and more.</p>
+                <div class="login-section">
+                    <h3>Access Your Account</h3>
+                    <div class="login-buttons-container">
+                        <a href="login.html" class="btn btn-primary" id="studentLogin">Student Login</a>
+                        <a href="login.html" class="btn btn-outline" id="teacherLogin">Teacher Login</a>
+                    </div>
+                    
+                </div>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">Explore Features</a>
+                    <a href="#" class="btn btn-outline demo-btn">Watch Demo</a>
+                </div>
+            </div>
+            <!-- <div class="hero-image">
+                <img src="images/home-illustration.png" alt="College Management System Dashboard">
+            </div> -->
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to manage academic processes efficiently</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>QR Code Attendance</h3>
+                    <p>Generate unique QR codes for each class with limited validity to prevent attendance fraud.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Assignment Management</h3>
+                    <p>Upload, submit, and grade assignments with automatic deadline tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Notes Sharing</h3>
+                    <p>Upload and access study materials categorized for easy access.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Event Information</h3>
+                    <p>Stay updated with college events and important announcements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Performance Tracking</h3>
+                    <p>Monitor academic progress with insights for both teachers and students.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure Authentication</h3>
+                    <p>Role-based access control with separate interfaces for teachers and students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workflow" class="workflow">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simplified Workflow</h2>
+                <p>How EduSync streamlines college processes</p>
+            </div>
+            <div class="workflow-wrapper">
+                <div class="workflow-item">
+                    <div class="workflow-number">1</div>
+                    <div class="workflow-content">
+                        <h3>Login Process</h3>
+                        <p>Users log in with credentials, gaining access based on their roles and redirected to their respective dashboards.</p>
+                    </div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-number">2</div>
+                    <div class="workflow-content">
+                        <h3>Attendance Process</h3>
+                        <p>Teachers generate unique QR codes that students scan within the allowed timeframe for automated attendance recording.</p>
+                    </div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-number">3</div>
+                    <div class="workflow-content">
+                        <h3>Assignment Process</h3>
+                        <p>Teachers upload assignments with details and deadlines, students submit their work, and teachers review and grade.</p>
+                    </div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-number">4</div>
+                    <div class="workflow-content">
+                        <h3>Notes & Resources</h3>
+                        <p>Teachers upload lecture notes and study materials that students can access and download as needed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="section-header left-aligned">
+                    <h2>Benefits</h2>
+                    <p>Why choose EduSync for your institution</p>
+                </div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> Reduces manual workload for teachers</li>
+                    <li><i class="fas fa-check"></i> Enhances security and prevents attendance fraud</li>
+                    <li><i class="fas fa-check"></i> Provides real-time tracking of academic performance</li>
+                    <li><i class="fas fa-check"></i> Simplifies assignment management and submission</li>
+                    <li><i class="fas fa-check"></i> Centralizes all educational resources and materials</li>
+                    <li><i class="fas fa-check"></i> Improves communication between faculty and students</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Request Demo</a>
+            </div>
+            <!-- <div class="benefits-image">
+                <img src="images/benefits-illustration.png" alt="EduSync Benefits">
+            </div> -->
+        </div>
+    </section>
+
+    <!-- <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Users Say</h2>
+                <p>Feedback from teachers and students using EduSync</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"EduSync has revolutionized how we manage attendance and assignments. The QR code system is ingenious and has improved attendance rates significantly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/60x60" alt="Professor Williams">
+                        <div class="author-info">
+                            <h4>Professor Williams</h4>
+                            <p>Computer Science Department</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"As a student, I love how easy it is to keep track of assignments and access study materials. The performance tracking helps me stay on top of my academic progress."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/60x60" alt="Sarah Johnson">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Engineering Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to transform your college management?</h2>
+            <p>Join hundreds of educational institutions already using EduSync</p>
+            <a href="#" class="btn btn-primary">Get Started Today</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>Edu<span>Sync</span></h2>
+                    </div>
+                    <p>Modernizing college management with technology and innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="#">QR Code Attendance</a></li>
+                        <li><a href="#">Assignment Management</a></li>
+                        <li><a href="#">Notes Sharing</a></li>
+                        <li><a href="#">Event Management</a></li>
+                        <li><a href="#">Performance Tracking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Tutorial Videos</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        
+                        <li><i class="fas fa-phone"></i> +91 9711XXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@edusync.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EduSync. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

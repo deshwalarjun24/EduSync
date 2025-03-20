@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Student Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Aryan Patel</h3>
+                    <p>Computer Science • Semester 4</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="student-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="student-attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li>
+                        <a href="student-assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li>
+                        <a href="student-notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="student-timetable.html"><i class="fas fa-calendar-alt"></i> Timetable</a>
+                    </li>
+                    <li class="active">
+                        <a href="student-exams.html"><i class="fas fa-pen"></i> Exams</a>
+                    </li>
+                    <li>
+                        <a href="student-results.html"><i class="fas fa-chart-line"></i> Results</a>
+                    </li>
+                    <li>
+                        <a href="student-settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Examination Portal</h1>
+                        <p>View your upcoming exams, access study resources, and track your exam preparation progress.</p>
+                    </div>
+
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Upcoming Exams</h3>
+                                <p class="stat-number">6</p>
+                                <p class="stat-info">Mid & Final Semester</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Next Exam</h3>
+                                <p class="stat-number">6</p>
+                                <p class="stat-info">Days Remaining</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Preparation</h3>
+                                <p class="stat-number">65%</p>
+                                <p class="stat-info">Overall Progress</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Study Resources</h3>
+                                <p class="stat-number">28</p>
+                                <p class="stat-info">Available Materials</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Upcoming Exams Schedule -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Exam Schedule</h3>
+                                <div class="exam-type-selector">
+                                    <button class="btn btn-sm btn-outline active">Mid Semester</button>
+                                    <button class="btn btn-sm btn-outline">Final Semester</button>
+                                </div>
+                            </div>
+                            <div class="exam-schedule">
+                                <div class="exam-item">
+                                    <div class="exam-date urgent">
+                                        <span class="day">25</span>
+                                        <span class="month">Jul</span>
+                                        <span class="time">09:00 AM</span>
+                                    </div>
+                                    <div class="exam-details">
+                                        <h4>Database Management Systems</h4>
+                                        <p class="instructor">Dr. Rajesh Sharma</p>
+                                        <div class="exam-info">
+                                            <span class="exam-location"><i class="fas fa-map-marker-alt"></i> Room 301, Block B</span>
+                                            <span class="exam-duration"><i class="fas fa-clock"></i> 3 Hours</span>
+                                            <span class="exam-type"><i class="fas fa-file-alt"></i> Mid Semester</span>
+                                        </div>
+                                    </div>
+                                    <div class="exam-preparation">
+                                        <div class="preparation-progress">
+                                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                                <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="75"></circle>
+                                            </svg>
+                                            <span class="percentage">75%</span>
+                                        </div>
+                                        <span class="preparation-label">Preparation</span>
+                                    </div>
+                                </div>
+                                <div class="exam-item">
+                                    <div class="exam-date">
+                                        <span class="day">27</span>
+                                        <span class="month">Jul</span>
+                                        <span class="time">02:00 PM</span>
+                                    </div>
+                                    <div class="exam-details">
+                                        <h4>Web Development</h4>
+                                        <p class="instructor">Prof. Anika Desai</p>
+                                        <div class="exam-info">
+                                            <span class="exam-location"><i class="fas fa-map-marker-alt"></i> Computer Lab 2</span>
+                                            <span class="exam-duration"><i class="fas fa-clock"></i> 2 Hours</span>
+                                            <span class="exam-type"><i class="fas fa-file-alt"></i> Mid Semester</span>
+                                        </div>
+                                    </div>
+                                    <div class="exam-preparation">
+                                        <div class="preparation-progress">
+                                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                                <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="60"></circle>
+                                            </svg>
+                                            <span class="percentage">60%</span>
+                                        </div>
+                                        <span class="preparation-label">Preparation</span>
+                                    </div>
+                                </div>
+                                <div class="exam-item">
+                                    <div class="exam-date">
+                                        <span class="day">30</span>
+                                        <span class="month">Jul</span>
+                                        <span class="time">09:00 AM</span>
+                                    </div>
+                                    <div class="exam-details">
+                                        <h4>Data Structures</h4>
+                                        <p class="instructor">Dr. Vikram Singh</p>
+                                        <div class="exam-info">
+                                            <span class="exam-location"><i class="fas fa-map-marker-alt"></i> Room 210, Block A</span>
+                                            <span class="exam-duration"><i class="fas fa-clock"></i> 3 Hours</span>
+                                            <span class="exam-type"><i class="fas fa-file-alt"></i> Mid Semester</span>
+                                        </div>
+                                    </div>
+                                    <div class="exam-preparation">
+                                        <div class="preparation-progress">
+                                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                                <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="80"></circle>
+                                            </svg>
+                                            <span class="percentage">80%</span>
+                                        </div>
+                                        <span class="preparation-label">Preparation</span>
+                                    </div>
+                                </div>
+                                <div class="exam-item">
+                                    <div class="exam-date">
+                                        <span class="day">02</span>
+                                        <span class="month">Aug</span>
+                                        <span class="time">02:00 PM</span>
+                                    </div>
+                                    <div class="exam-details">
+                                        <h4>Algorithm Design</h4>
+                                        <p class="instructor">Dr. Meera Iyer</p>
+                                        <div class="exam-info">
+                                            <span class="exam-location"><i class="fas fa-map-marker-alt"></i> Room 201, Block A</span>
+                                            <span class="exam-duration"><i class="fas fa-clock"></i> 3 Hours</span>
+                                            <span class="exam-type"><i class="fas fa-file-alt"></i> Mid Semester</span>
+                                        </div>
+                                    </div>
+                                    <div class="exam-preparation">
+                                        <div class="preparation-progress">
+                                            <svg width="60" height="60" viewBox="0 0 100 100">
+                                                <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                                <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="45"></circle>
+                                            </svg>
+                                            <span class="percentage">45%</span>
+                                        </div>
+                                        <span class="preparation-label">Preparation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Study Planner -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Study Planner</h3>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Add Task</button>
+                            </div>
+                            <div class="study-plan">
+                                <div class="study-day">
+                                    <h4>Today</h4>
+                                    <div class="study-tasks">
+                                        <div class="task-item completed">
+                                            <div class="task-checkbox">
+                                                <input type="checkbox" id="task1" checked>
+                                                <label for="task1"></label>
+                                            </div>
+                                            <div class="task-details">
+                                                <h5>Database Normalization</h5>
+                                                <p>Review the concepts of 1NF, 2NF, 3NF, and BCNF</p>
+                                            </div>
+                                            <div class="task-time">
+                                                <span>2 hrs</span>
+                                            </div>
+                                        </div>
+                                        <div class="task-item in-progress">
+                                            <div class="task-checkbox">
+                                                <input type="checkbox" id="task2">
+                                                <label for="task2"></label>
+                                            </div>
+                                            <div class="task-details">
+                                                <h5>CSS Flexbox and Grid Practice</h5>
+                                                <p>Complete the online exercises for web development</p>
+                                            </div>
+                                            <div class="task-time">
+                                                <span>1.5 hrs</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="study-day">
+                                    <h4>Tomorrow</h4>
+                                    <div class="study-tasks">
+                                        <div class="task-item">
+                                            <div class="task-checkbox">
+                                                <input type="checkbox" id="task3">
+                                                <label for="task3"></label>
+                                            </div>
+                                            <div class="task-details">
+                                                <h5>SQL Queries Practice</h5>
+                                                <p>Solve the problem set on complex joins and subqueries</p>
+                                            </div>
+                                            <div class="task-time">
+                                                <span>2 hrs</span>
+                                            </div>
+                                        </div>
+                                        <div class="task-item">
+                                            <div class="task-checkbox">
+                                                <input type="checkbox" id="task4">
+                                                <label for="task4"></label>
+                                            </div>
+                                            <div class="task-details">
+                                                <h5>Binary Trees and BST</h5>
+                                                <p>Revise tree traversal algorithms and implementations</p>
+                                            </div>
+                                            <div class="task-time">
+                                                <span>3 hrs</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Study Resources -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Study Resources</h3>
+                                <select class="period-select">
+                                    <option>All Subjects</option>
+                                    <option>Web Development</option>
+                                    <option>Data Structures</option>
+                                    <option>Database Management</option>
+                                    <option>Algorithm Design</option>
+                                </select>
+                            </div>
+                            <div class="resource-list">
+                                <div class="resource-item">
+                                    <div class="resource-icon pdf">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="resource-details">
+                                        <h4>DBMS Previous Year Papers</h4>
+                                        <p>Collection of mid-semester exams (2021-2023)</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Dr. Rajesh Sharma</span>
+                                            <span><i class="fas fa-download"></i> 128 downloads</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </div>
+                                <div class="resource-item">
+                                    <div class="resource-icon ppt">
+                                        <i class="fas fa-file-powerpoint"></i>
+                                    </div>
+                                    <div class="resource-details">
+                                        <h4>Web Development Revision Slides</h4>
+                                        <p>Complete revision guide for mid-semester exam</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Prof. Anika Desai</span>
+                                            <span><i class="fas fa-download"></i> 95 downloads</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </div>
+                                <div class="resource-item">
+                                    <div class="resource-icon doc">
+                                        <i class="fas fa-file-word"></i>
+                                    </div>
+                                    <div class="resource-details">
+                                        <h4>Data Structures Practice Problems</h4>
+                                        <p>50 problems with solutions for exam preparation</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-user"></i> Dr. Vikram Singh</span>
+                                            <span><i class="fas fa-download"></i> 112 downloads</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exam Rules & Regulations -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Exam Regulations</h3>
+                            </div>
+                            <div class="regulation-content">
+                                <div class="regulation-item">
+                                    <div class="regulation-icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div class="regulation-details">
+                                        <h4>Student ID Requirements</h4>
+                                        <p>All students must bring their college ID card to the examination hall. No entry will be permitted without proper identification.</p>
+                                    </div>
+                                </div>
+                                <div class="regulation-item">
+                                    <div class="regulation-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="regulation-details">
+                                        <h4>Timing & Punctuality</h4>
+                                        <p>Students should arrive at least 15 minutes before the exam starts. No entry will be allowed after 30 minutes from the start of the exam.</p>
+                                    </div>
+                                </div>
+                                <div class="regulation-item">
+                                    <div class="regulation-icon">
+                                        <i class="fas fa-ban"></i>
+                                    </div>
+                                    <div class="regulation-details">
+                                        <h4>Prohibited Items</h4>
+                                        <p>Mobile phones, smart watches, calculators (unless specified), and any electronic devices are strictly prohibited in the examination hall.</p>
+                                    </div>
+                                </div>
+                                <div class="regulation-item">
+                                    <div class="regulation-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="regulation-details">
+                                        <h4>Malpractice Consequences</h4>
+                                        <p>Any form of malpractice will result in disqualification from the exam and may lead to severe disciplinary action as per college norms.</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary regulations-btn">Download Complete Guidelines</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

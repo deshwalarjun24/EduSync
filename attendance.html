@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Teacher Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Dr. Rajesh Sharma</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="teacher-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li>
+                        <a href="assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li>
+                        <a href="notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="students.html"><i class="fas fa-user-graduate"></i> Students</a>
+                    </li>
+                    <li>
+                        <a href="performance.html"><i class="fas fa-chart-line"></i> Performance</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">5</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Attendance Management</h1>
+                        <p>Track and manage class attendance with our innovative QR code system. Generate unique QR codes for each class session, set validity periods, and let students scan with their devices. View real-time attendance statistics and export detailed reports.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- QR Code Generator -->
+                        <div class="dashboard-card qr-generator">
+                            <div class="card-header">
+                                <h3>Generate QR Code</h3>
+                            </div>
+                            <div class="qr-code-container">
+                                <div class="qr-placeholder" id="qrCodeDisplay">
+                                    <img src="https://via.placeholder.com/200x200" alt="QR Code Placeholder">
+                                </div>
+                                <div class="qr-info">
+                                    <h3>QR Code for Attendance</h3>
+                                    <p>Valid for <span id="countdown">05:00</span> minutes</p>
+                                    <p><i class="fas fa-info-circle"></i> Students need to scan this QR code to mark their attendance</p>
+                                </div>
+                                <div class="qr-actions">
+                                    <button class="btn btn-primary" id="generateQRBtn"><i class="fas fa-sync-alt"></i> Generate New QR</button>
+                                    <button class="btn btn-outline" id="resetCountdownBtn"><i class="fas fa-redo"></i> Reset Timer</button>
+                                </div>
+                            </div>
+                            <div class="qr-settings">
+                                <h3>QR Code Settings</h3>
+                                <div class="form-group">
+                                    <label for="classSelect">Select Class:</label>
+                                    <select id="classSelect">
+                                        <option>Web Development</option>
+                                        <option>Data Structures</option>
+                                        <option>Database Management</option>
+                                        <option>Algorithm Design</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="validityTime">Validity Time (minutes):</label>
+                                    <input type="number" id="validityTime" value="5" min="1" max="30">
+                                </div>
+                                <div class="time-limit-note">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <p>Setting longer validity times may reduce security. Recommended: 5 minutes</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attendance Summary -->
+                        <div class="dashboard-card attendance-summary">
+                            <div class="summary-header">
+                                <h3>Today's Attendance</h3>
+                                <select class="period-select">
+                                    <option>Web Development</option>
+                                    <option>Data Structures</option>
+                                    <option>Database Management</option>
+                                </select>
+                            </div>
+                            <div class="summary-overview">
+                                <div class="summary-stat">
+                                    <div class="stat-circle">
+                                        <svg width="100" height="100" viewBox="0 0 100 100">
+                                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                            <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="78"></circle>
+                                        </svg>
+                                        <span class="percentage">78%</span>
+                                    </div>
+                                    <p>Overall Attendance</p>
+                                </div>
+                                <div class="summary-details">
+                                    <div class="detail-item">
+                                        <span class="detail-value present">35</span>
+                                        <span class="detail-label">Present</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value late">7</span>
+                                        <span class="detail-label">Late</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value absent">10</span>
+                                        <span class="detail-label">Absent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attendance Table -->
+                        <div class="dashboard-card table-container">
+                            <div class="card-header">
+                                <h3>Student Attendance Log</h3>
+                                <div class="filter-group">
+                                    <select class="filter-select">
+                                        <option>All Students</option>
+                                        <option>Present Only</option>
+                                        <option>Absent Only</option>
+                                        <option>Late Only</option>
+                                    </select>
+                                    <input type="date" class="date-select" value="2023-07-15">
+                                </div>
+                            </div>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Class</th>
+                                        <th>Date</th>
+                                        <th>Check-in Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Rahul Sharma
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>10:02 AM</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Priya Patel
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>10:05 AM</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Amit Kumar
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>10:12 AM</td>
+                                        <td><span class="status-badge late">Late</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Neha Gupta
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>10:08 AM</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Raj Malhotra
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>--:--</td>
+                                        <td><span class="status-badge absent">Absent</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Anjali Singh
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>10:03 AM</td>
+                                        <td><span class="status-badge present">Present</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="with-avatar">
+                                            <img src="https://via.placeholder.com/32x32" alt="Student">
+                                            Vikram Mehta
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td>July 15, 2023</td>
+                                        <td>--:--</td>
+                                        <td><span class="status-badge absent">Absent</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-pagination">
+                                <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                                <span class="pagination-info">Page 1 of 3 (Showing 1-7 of 20 records)</span>
+                                <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

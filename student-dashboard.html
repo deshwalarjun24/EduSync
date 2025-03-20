@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Student Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Aryan Patel</h3>
+                    <p>Computer Science • Semester 4</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="student-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="student-attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li>
+                        <a href="student-assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li>
+                        <a href="student-notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="student-timetable.html"><i class="fas fa-calendar-alt"></i> Timetable</a>
+                    </li>
+                    <li>
+                        <a href="student-exams.html"><i class="fas fa-pen"></i> Exams</a>
+                    </li>
+                    <li>
+                        <a href="student-results.html"><i class="fas fa-chart-line"></i> Results</a>
+                    </li>
+                    <li>
+                        <a href="student-settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Student Dashboard</h1>
+                        <p>Welcome back, Aryan! Here's an overview of your academic activities and upcoming tasks.</p>
+                    </div>
+
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Current CGPA</h3>
+                                <p class="stat-number">3.8</p>
+                                <p class="stat-info">Top 10% in class</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Pending Tasks</h3>
+                                <p class="stat-number">5</p>
+                                <p class="stat-info">2 due this week</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Attendance</h3>
+                                <p class="stat-number">92%</p>
+                                <p class="stat-info">This semester</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Next Exam</h3>
+                                <p class="stat-number">6</p>
+                                <p class="stat-info">Days remaining</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Today's Schedule -->
+                        <div class="dashboard-card upcoming-classes">
+                            <div class="card-header">
+                                <h3>Today's Schedule</h3>
+                                <a href="student-timetable.html" class="view-all">View Full Timetable</a>
+                            </div>
+                            <ul class="class-list">
+                                <li class="class-item completed">
+                                    <div class="class-time">
+                                        <p>08:30 AM</p>
+                                        <span class="time-indicator"></span>
+                                    </div>
+                                    <div class="class-info">
+                                        <h4>Database Management</h4>
+                                        <p>Room 305 • Dr. Rajesh Sharma</p>
+                                    </div>
+                                    <div class="class-status">Completed</div>
+                                </li>
+                                <li class="class-item active">
+                                    <div class="class-time">
+                                        <p>11:00 AM</p>
+                                        <span class="time-indicator"></span>
+                                    </div>
+                                    <div class="class-info">
+                                        <h4>Web Development</h4>
+                                        <p>Computer Lab • Prof. Anika Desai</p>
+                                    </div>
+                                    <div class="class-status">Ongoing</div>
+                                </li>
+                                <li class="class-item">
+                                    <div class="class-time">
+                                        <p>02:00 PM</p>
+                                        <span class="time-indicator"></span>
+                                    </div>
+                                    <div class="class-info">
+                                        <h4>Data Structures</h4>
+                                        <p>Room 210 • Dr. Vikram Singh</p>
+                                    </div>
+                                    <div class="class-status">Upcoming</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Pending Assignments -->
+                        <div class="dashboard-card recent-assignments">
+                            <div class="card-header">
+                                <h3>Pending Assignments</h3>
+                                <a href="student-assignments.html" class="view-all">View All</a>
+                            </div>
+                            <ul class="assignment-list">
+                                <li class="assignment-item">
+                                    <div class="assignment-info">
+                                        <div>
+                                            <h4>Create a Responsive Website</h4>
+                                            <p>Web Development • Prof. Anika Desai</p>
+                                        </div>
+                                    </div>
+                                    <div class="deadline urgent">Due in 2 days</div>
+                                </li>
+                                <li class="assignment-item">
+                                    <div class="assignment-info">
+                                        <div>
+                                            <h4>Binary Tree Implementation</h4>
+                                            <p>Data Structures • Dr. Vikram Singh</p>
+                                        </div>
+                                    </div>
+                                    <div class="deadline">Due in 5 days</div>
+                                </li>
+                                <li class="assignment-item">
+                                    <div class="assignment-info">
+                                        <div>
+                                            <h4>Design an ER Diagram</h4>
+                                            <p>Database Management • Dr. Rajesh Sharma</p>
+                                        </div>
+                                    </div>
+                                    <div class="deadline">Due in 7 days</div>
+                                </li>
+                                <li class="assignment-item">
+                                    <div class="assignment-info">
+                                        <div>
+                                            <h4>Algorithm Analysis Report</h4>
+                                            <p>Algorithm Design • Dr. Meera Iyer</p>
+                                        </div>
+                                    </div>
+                                    <div class="deadline">Due in 10 days</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Attendance Overview -->
+                        <div class="dashboard-card attendance-overview">
+                            <div class="card-header">
+                                <h3>Attendance Overview</h3>
+                                <select class="period-select">
+                                    <option>This Semester</option>
+                                    <option>Last Month</option>
+                                    <option>This Week</option>
+                                </select>
+                            </div>
+                            <div class="summary-overview">
+                                <div class="summary-stat">
+                                    <div class="stat-circle">
+                                        <svg width="100" height="100" viewBox="0 0 100 100">
+                                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                            <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="92"></circle>
+                                        </svg>
+                                        <span class="percentage">92%</span>
+                                    </div>
+                                    <p>Overall Attendance</p>
+                                </div>
+                                <div class="summary-details">
+                                    <div class="detail-item">
+                                        <span class="detail-value present">128</span>
+                                        <span class="detail-label">Present</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value late">7</span>
+                                        <span class="detail-label">Late</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-value absent">4</span>
+                                        <span class="detail-label">Absent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Notes -->
+                        <div class="dashboard-card calendar-events">
+                            <div class="card-header">
+                                <h3>Recent Notes</h3>
+                                <a href="student-notes.html" class="view-all">View All</a>
+                            </div>
+                            <div class="notes-list">
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Introduction to CSS Flexbox</h4>
+                                        <p class="notes-class">Web Development</p>
+                                        <p class="notes-info">Shared 2 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-powerpoint"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Binary Search Trees</h4>
+                                        <p class="notes-class">Data Structures</p>
+                                        <p class="notes-info">Shared 3 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-word"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Database Normalization</h4>
+                                        <p class="notes-class">Database Management</p>
+                                        <p class="notes-info">Shared 5 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

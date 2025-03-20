@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Student Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Aryan Patel</h3>
+                    <p>Computer Science • Semester 4</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="student-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="student-attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li>
+                        <a href="student-assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li class="active">
+                        <a href="student-notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="student-timetable.html"><i class="fas fa-calendar-alt"></i> Timetable</a>
+                    </li>
+                    <li>
+                        <a href="student-exams.html"><i class="fas fa-pen"></i> Exams</a>
+                    </li>
+                    <li>
+                        <a href="student-results.html"><i class="fas fa-chart-line"></i> Results</a>
+                    </li>
+                    <li>
+                        <a href="student-settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Study Materials</h1>
+                        <p>Access lecture notes, study materials, and reference documents shared by your instructors. Organize your study resources by subject and topic for effective learning.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Notes Search & Filter -->
+                        <div class="dashboard-card notes-search">
+                            <div class="card-header">
+                                <h3>Find Study Materials</h3>
+                            </div>
+                            <div class="search-container">
+                                <div class="form-group">
+                                    <label for="notesSearch">Search Materials</label>
+                                    <div class="search-box">
+                                        <input type="text" id="notesSearch" placeholder="Search by title, subject, or keyword...">
+                                        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="subjectFilter">Subject</label>
+                                        <select id="subjectFilter">
+                                            <option>All Subjects</option>
+                                            <option>Web Development</option>
+                                            <option>Data Structures</option>
+                                            <option>Database Management</option>
+                                            <option>Algorithm Design</option>
+                                            <option>Software Engineering</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="typeFilter">Type</label>
+                                        <select id="typeFilter">
+                                            <option>All Types</option>
+                                            <option>Lecture Notes</option>
+                                            <option>Study Material</option>
+                                            <option>Reference Material</option>
+                                            <option>Practice Questions</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="filter-tags">
+                                    <div class="filter-tag">
+                                        Web Development <i class="fas fa-times"></i>
+                                    </div>
+                                    <div class="filter-tag">
+                                        Lecture Notes <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Notes -->
+                        <div class="dashboard-card recent-notes">
+                            <div class="card-header">
+                                <h3>Recently Added</h3>
+                                <select class="period-select">
+                                    <option>All Time</option>
+                                    <option>This Month</option>
+                                    <option>This Week</option>
+                                </select>
+                            </div>
+                            <div class="notes-list">
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Introduction to CSS Flexbox</h4>
+                                        <p class="notes-class">Web Development • Prof. Anika Desai</p>
+                                        <p class="notes-info">Lecture Notes • Added 2 days ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i> Download</button>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-powerpoint"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Binary Search Trees</h4>
+                                        <p class="notes-class">Data Structures • Dr. Vikram Singh</p>
+                                        <p class="notes-info">Lecture Notes • Added 3 days ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i> Download</button>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-word"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Database Normalization</h4>
+                                        <p class="notes-class">Database Management • Dr. Rajesh Sharma</p>
+                                        <p class="notes-info">Study Material • Added 5 days ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i> Download</button>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="notes-item">
+                                    <div class="notes-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="notes-details">
+                                        <h4>Advanced JavaScript Concepts</h4>
+                                        <p class="notes-class">Web Development • Prof. Anika Desai</p>
+                                        <p class="notes-info">Practice Questions • Added 1 week ago</p>
+                                    </div>
+                                    <div class="notes-actions">
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i> Download</button>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subject Folders -->
+                        <div class="dashboard-card subject-folders">
+                            <div class="card-header">
+                                <h3>Materials by Subject</h3>
+                            </div>
+                            <div class="folder-grid">
+                                <div class="folder-item">
+                                    <div class="folder-icon">
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                        <h4>Web Development</h4>
+                                        <p>15 files • Last updated 2 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="folder-item">
+                                    <div class="folder-icon">
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                        <h4>Data Structures</h4>
+                                        <p>12 files • Last updated 3 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="folder-item">
+                                    <div class="folder-icon">
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                        <h4>Database Management</h4>
+                                        <p>10 files • Last updated 1 week ago</p>
+                                    </div>
+                                </div>
+                                <div class="folder-item">
+                                    <div class="folder-icon">
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                        <h4>Algorithm Design</h4>
+                                        <p>8 files • Last updated 1 week ago</p>
+                                    </div>
+                                </div>
+                                <div class="folder-item">
+                                    <div class="folder-icon">
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                        <h4>Software Engineering</h4>
+                                        <p>9 files • Last updated 2 weeks ago</p>
+                                    </div>
+                                </div>
+                                <div class="folder-item">
+                                    <div class="folder-icon">
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div class="folder-details">
+                                        <h4>UI/UX Design</h4>
+                                        <p>7 files • Last updated 2 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notes Preview -->
+                        <div class="dashboard-card notes-preview">
+                            <div class="card-header">
+                                <h3>Preview</h3>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-download"></i> Download</button>
+                            </div>
+                            <div class="preview-container">
+                                <div class="preview-header">
+                                    <h4>Introduction to CSS Flexbox</h4>
+                                    <p>Web Development • Prof. Anika Desai • Lecture Notes</p>
+                                </div>
+                                <div class="preview-content">
+                                    <p><strong>What is Flexbox?</strong></p>
+                                    <p>CSS Flexbox Layout Module makes it easier to design flexible responsive layout structures without using float or positioning. It provides a more efficient way to lay out, align and distribute space among items in a container.</p>
+                                    
+                                    <p><strong>Flexbox Properties:</strong></p>
+                                    <ul>
+                                        <li><code>display: flex</code> - Defines a flex container</li>
+                                        <li><code>flex-direction</code> - Defines the direction of flex items (row, row-reverse, column, column-reverse)</li>
+                                        <li><code>justify-content</code> - Aligns items along the main axis (flex-start, flex-end, center, space-between, space-around)</li>
+                                        <li><code>align-items</code> - Aligns items along the cross axis (flex-start, flex-end, center, stretch, baseline)</li>
+                                        <li><code>flex-wrap</code> - Controls whether items can wrap to multiple lines (nowrap, wrap, wrap-reverse)</li>
+                                    </ul>
+                                    
+                                    <p>This is just a preview. Download the complete notes for more detailed examples and exercises.</p>
+                                </div>
+                                <div class="preview-nav">
+                                    <span>Page 1 of 5</span>
+                                    <div class="preview-buttons">
+                                        <button class="btn btn-sm"><i class="fas fa-chevron-left"></i></button>
+                                        <button class="btn btn-sm"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

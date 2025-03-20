@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-header">
+            <a href="index.html" class="logo">Edu<span>Sync</span></a>
+            <div class="login-nav">
+                <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+            </div>
+        </div>
+
+        <div class="login-form-container">
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="teacher">Teacher Login</button>
+                <button class="tab-btn" data-tab="student">Student Login</button>
+            </div>
+
+            <!-- Teacher Login Form -->
+            <form id="teacherLoginForm" class="login-form active">
+                <h2>Teacher Login</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="teacherEmail">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="teacherEmail" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherPassword">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="teacherPassword" placeholder="Enter your password" required>
+                            <i class="toggle-password fas fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="teacherRemember">
+                        <label for="teacherRemember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Login</button>
+                
+                <!-- Demo Credentials for Teacher -->
+                <div class="demo-credentials">
+                    <p>Demo Credentials:</p>
+                    <div class="demo-user">
+                        <strong>Prof. Rajesh Sharma</strong>
+                        <div>Email: rajesh.sharma@edusync.com</div>
+                        <div>Password: teacher123</div>
+                    </div>
+                </div>
+                
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html" class="btn-link">Sign up as a Teacher</a>
+                </div>
+            </form>
+
+            <!-- Student Login Form -->
+            <form id="studentLoginForm" class="login-form">
+                <h2>Student Login</h2>
+                <div class="default-credentials-banner">
+                    <div class="banner-icon"><i class="fas fa-info-circle"></i></div>
+                    <div class="banner-text">
+                        <strong>Default Credentials:</strong>
+                        <div>Email: studentx@edusync.com</div>
+                        <div>Password: studentx@123</div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="studentEmail">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="studentEmail" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="studentPassword">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="studentPassword" placeholder="Enter your password" required>
+                            <i class="toggle-password fas fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="studentRemember">
+                        <label for="studentRemember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Login</button>
+                
+                <!-- Demo Credentials for Student -->
+                <div class="demo-credentials">
+                    <p>Other Demo Account:</p>
+                    <div class="demo-user">
+                        <strong>Priya Patel</strong>
+                        <div>Email: priya.patel@edusync.com</div>
+                        <div>Password: student123</div>
+                    </div>
+                </div>
+                
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html" class="btn-link">Sign up as a Student</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-footer">
+            <p>&copy; 2023 EduSync. All rights reserved.</p>
+            <div class="login-footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-illustration">
+        <div class="illustration-content">
+            <h1>Welcome to EduSync</h1>
+            <p>The complete college management system for teachers and students</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-qrcode"></i> QR Code Based Attendance</li>
+                <li><i class="fas fa-file-alt"></i> Assignment Management</li>
+                <li><i class="fas fa-book"></i> Notes and Study Materials</li>
+                <li><i class="fas fa-chart-line"></i> Academic Performance Tracking</li>
+            </ul>
+        </div>
+        <div class="illustration-image">
+            <img src="https://via.placeholder.com/600x800" alt="EduSync Illustration">
+        </div>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html> 

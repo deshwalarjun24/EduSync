@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo">Edu<span>Sync</span></h2>
+                <div class="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/100x100" alt="Teacher Avatar">
+                </div>
+                <div class="user-details">
+                    <h3>Dr. Rajesh Sharma</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="teacher-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="attendance.html"><i class="fas fa-qrcode"></i> Attendance</a>
+                    </li>
+                    <li class="active">
+                        <a href="assignments.html"><i class="fas fa-file-alt"></i> Assignments</a>
+                    </li>
+                    <li>
+                        <a href="notes.html"><i class="fas fa-book"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="students.html"><i class="fas fa-user-graduate"></i> Students</a>
+                    </li>
+                    <li>
+                        <a href="performance.html"><i class="fas fa-chart-line"></i> Performance</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-actions">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge">5</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="dashboard-section active">
+                    <div class="section-header">
+                        <h1>Assignment Management</h1>
+                        <p>Create, track, and evaluate student assignments all in one place. Set due dates, upload attachments, monitor submission rates, and grade student work efficiently. The analytics dashboard helps track student performance across subjects.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Create Assignment -->
+                        <div class="dashboard-card assignment-creator">
+                            <div class="card-header">
+                                <h3>Create New Assignment</h3>
+                            </div>
+                            <div class="assignment-form">
+                                <div class="form-group">
+                                    <label for="assignmentTitle">Assignment Title</label>
+                                    <input type="text" id="assignmentTitle" placeholder="Enter assignment title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="assignmentDesc">Description</label>
+                                    <textarea id="assignmentDesc" placeholder="Enter detailed assignment instructions, requirements, grading criteria, and any other important information students should know about this assignment."></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half">
+                                        <label for="assignmentClass">Class</label>
+                                        <select id="assignmentClass">
+                                            <option>Web Development</option>
+                                            <option>Data Structures</option>
+                                            <option>Database Management</option>
+                                            <option>Algorithm Design</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group half">
+                                        <label for="assignmentDate">Due Date</label>
+                                        <input type="date" id="assignmentDate">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="maxMarks">Maximum Marks</label>
+                                    <input type="number" id="maxMarks" value="100" min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Attachments</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="assignmentFiles" multiple>
+                                        <label for="assignmentFiles"><i class="fas fa-cloud-upload-alt"></i> Upload Files</label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary"><i class="fas fa-plus"></i> Create Assignment</button>
+                            </div>
+                        </div>
+
+                        <!-- Ongoing Assignments -->
+                        <div class="dashboard-card ongoing-assignments">
+                            <div class="card-header">
+                                <h3>Ongoing Assignments</h3>
+                                <select class="period-select">
+                                    <option>All Classes</option>
+                                    <option>Web Development</option>
+                                    <option>Data Structures</option>
+                                    <option>Database Management</option>
+                                </select>
+                            </div>
+                            <div class="assignment-list-container">
+                                <div class="assignment-item">
+                                    <div class="assignment-icon">
+                                        <i class="fas fa-file-code"></i>
+                                    </div>
+                                    <div class="assignment-details">
+                                        <h4>Create a Responsive Website</h4>
+                                        <p class="assignment-class">Web Development</p>
+                                        <div class="assignment-progress">
+                                            <div class="progress-stats">
+                                                <span class="submitted">23 Submitted</span>
+                                                <span class="pending">12 Pending</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 65%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="assignment-due">
+                                        <p>Due in</p>
+                                        <span class="due-days">3 days</span>
+                                    </div>
+                                </div>
+                                <div class="assignment-item">
+                                    <div class="assignment-icon">
+                                        <i class="fas fa-sitemap"></i>
+                                    </div>
+                                    <div class="assignment-details">
+                                        <h4>Binary Tree Implementation</h4>
+                                        <p class="assignment-class">Data Structures</p>
+                                        <div class="assignment-progress">
+                                            <div class="progress-stats">
+                                                <span class="submitted">32 Submitted</span>
+                                                <span class="pending">5 Pending</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="assignment-due">
+                                        <p>Due in</p>
+                                        <span class="due-days">1 day</span>
+                                    </div>
+                                </div>
+                                <div class="assignment-item">
+                                    <div class="assignment-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <div class="assignment-details">
+                                        <h4>Design an ER Diagram</h4>
+                                        <p class="assignment-class">Database Management</p>
+                                        <div class="assignment-progress">
+                                            <div class="progress-stats">
+                                                <span class="submitted">18 Submitted</span>
+                                                <span class="pending">10 Pending</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 60%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="assignment-due">
+                                        <p>Due in</p>
+                                        <span class="due-days">5 days</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submitted Assignments -->
+                        <div class="dashboard-card submitted-assignments">
+                            <div class="card-header">
+                                <h3>Recent Submissions</h3>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            <div class="submission-list">
+                                <div class="submission-item">
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/40x40" alt="Student Avatar">
+                                        <div>
+                                            <h4>Priya Verma</h4>
+                                            <p>Create a Responsive Website</p>
+                                        </div>
+                                    </div>
+                                    <div class="submission-actions">
+                                        <span class="submission-time">2 hours ago</span>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="submission-item">
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/40x40" alt="Student Avatar">
+                                        <div>
+                                            <h4>Arjun Mehta</h4>
+                                            <p>Binary Tree Implementation</p>
+                                        </div>
+                                    </div>
+                                    <div class="submission-actions">
+                                        <span class="submission-time">3 hours ago</span>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="submission-item">
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/40x40" alt="Student Avatar">
+                                        <div>
+                                            <h4>Neha Kapoor</h4>
+                                            <p>Design an ER Diagram</p>
+                                        </div>
+                                    </div>
+                                    <div class="submission-actions">
+                                        <span class="submission-time">5 hours ago</span>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="submission-item">
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/40x40" alt="Student Avatar">
+                                        <div>
+                                            <h4>Rahul Mishra</h4>
+                                            <p>Binary Tree Implementation</p>
+                                        </div>
+                                    </div>
+                                    <div class="submission-actions">
+                                        <span class="submission-time">6 hours ago</span>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                                <div class="submission-item">
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/40x40" alt="Student Avatar">
+                                        <div>
+                                            <h4>Ananya Gupta</h4>
+                                            <p>Create a Responsive Website</p>
+                                        </div>
+                                    </div>
+                                    <div class="submission-actions">
+                                        <span class="submission-time">8 hours ago</span>
+                                        <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Assignment Analytics -->
+                        <div class="dashboard-card assignment-analytics">
+                            <div class="card-header">
+                                <h3>Assignment Analytics</h3>
+                                <select class="period-select">
+                                    <option>This Month</option>
+                                    <option>Last Month</option>
+                                    <option>This Semester</option>
+                                </select>
+                            </div>
+                            <div class="analytics-grid">
+                                <div class="analytics-item">
+                                    <div class="analytics-value">35</div>
+                                    <div class="analytics-label">Total Assignments</div>
+                                </div>
+                                <div class="analytics-item">
+                                    <div class="analytics-value">28</div>
+                                    <div class="analytics-label">Completed</div>
+                                </div>
+                                <div class="analytics-item">
+                                    <div class="analytics-value">7</div>
+                                    <div class="analytics-label">Ongoing</div>
+                                </div>
+                                <div class="analytics-item">
+                                    <div class="analytics-value">82%</div>
+                                    <div class="analytics-label">Avg. Submission Rate</div>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="chart-placeholder">
+                                    <div class="bar-chart">
+                                        <div class="chart-bar" style="height: 60%;" title="Web Development">
+                                            <span>Web Dev</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 75%;" title="Data Structures">
+                                            <span>DS</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 45%;" title="Database Management">
+                                            <span>DBMS</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 85%;" title="Algorithm Design">
+                                            <span>Algo</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart-label">Submission Rate by Subject</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

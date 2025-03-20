@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EduSync</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="login-container signup-container">
+        <div class="login-header">
+            <a href="index.html" class="logo">Edu<span>Sync</span></a>
+            <div class="login-nav">
+                <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+                <a href="login.html" title="Login"><i class="fas fa-sign-in-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="login-form-container">
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="teacher">Teacher Registration</button>
+                <button class="tab-btn" data-tab="student">Student Registration</button>
+            </div>
+
+            <!-- Teacher Registration Form -->
+            <form id="teacherSignupForm" class="login-form active">
+                <h2>Teacher Registration</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="teacherFullName">Full Name*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="teacherFullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherEmail">Email*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="teacherEmail" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherDepartment">Department*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-building"></i>
+                            <select id="teacherDepartment" required>
+                                <option value="" disabled selected>Select your department</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Science">Science</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Management">Management</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherMobile">Mobile Number*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="teacherMobile" placeholder="Enter your mobile number" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherPassword">Password*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="teacherPassword" placeholder="Create a password" required>
+                            <i class="toggle-password fas fa-eye"></i>
+                        </div>
+                        <small class="password-hint">At least 8 characters with letters, numbers & symbols</small>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherConfirmPassword">Confirm Password*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="teacherConfirmPassword" placeholder="Confirm your password" required>
+                            <i class="toggle-password fas fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="terms-agreement">
+                    <input type="checkbox" id="teacherTerms" required>
+                    <label for="teacherTerms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Create Account</button>
+                <div class="signup-link">
+                    Already have an account? <a href="login.html">Login here</a>
+                </div>
+            </form>
+
+            <!-- Student Registration Form -->
+            <form id="studentSignupForm" class="login-form">
+                <h2>Student Registration</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="studentFullName">Full Name*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="studentFullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="studentEmail">Email*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="studentEmail" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="row-fields">
+                        <div class="input-field">
+                            <label for="studentDepartment">Department*</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-building"></i>
+                                <select id="studentDepartment" required>
+                                    <option value="" disabled selected>Select department</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Science">Science</option>
+                                    <option value="Arts">Arts</option>
+                                    <option value="Commerce">Commerce</option>
+                                    <option value="Management">Management</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="studentSemester">Semester*</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-calendar"></i>
+                                <select id="studentSemester" required>
+                                    <option value="" disabled selected>Select semester</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                    <option value="3">Semester 3</option>
+                                    <option value="4">Semester 4</option>
+                                    <option value="5">Semester 5</option>
+                                    <option value="6">Semester 6</option>
+                                    <option value="7">Semester 7</option>
+                                    <option value="8">Semester 8</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fields">
+                        <div class="input-field">
+                            <label for="studentRollNo">Roll Number*</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" id="studentRollNo" placeholder="Enter roll number" required>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="studentMobile">Mobile Number*</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="studentMobile" placeholder="Enter mobile number" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="studentPassword">Password*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="studentPassword" placeholder="Create a password" required>
+                            <i class="toggle-password fas fa-eye"></i>
+                        </div>
+                        <small class="password-hint">At least 8 characters with letters, numbers & symbols</small>
+                    </div>
+                    <div class="input-field">
+                        <label for="studentConfirmPassword">Confirm Password*</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="studentConfirmPassword" placeholder="Confirm your password" required>
+                            <i class="toggle-password fas fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="terms-agreement">
+                    <input type="checkbox" id="studentTerms" required>
+                    <label for="studentTerms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Create Account</button>
+                <div class="signup-link">
+                    Already have an account? <a href="login.html">Login here</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-footer">
+            <p>&copy; 2023 EduSync. All rights reserved.</p>
+            <div class="login-footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-illustration">
+        <div class="illustration-content">
+            <h1>Join EduSync</h1>
+            <p>Create your account and become a part of the modern college management experience</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-qrcode"></i> QR Code Based Attendance</li>
+                <li><i class="fas fa-file-alt"></i> Assignment Management</li>
+                <li><i class="fas fa-book"></i> Notes and Study Materials</li>
+                <li><i class="fas fa-chart-line"></i> Academic Performance Tracking</li>
+            </ul>
+        </div>
+        <div class="illustration-image">
+            <img src="https://via.placeholder.com/600x800" alt="EduSync Illustration">
+        </div>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
+</html> 
