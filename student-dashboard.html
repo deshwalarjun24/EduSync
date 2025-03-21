@@ -99,8 +99,8 @@
                             </div>
                             <div class="stat-details">
                                 <h3>Current CGPA</h3>
-                                <p class="stat-number">3.8</p>
-                                <p class="stat-info">Top 10% in class</p>
+                                <p class="stat-number">0.0</p>
+                                <p class="stat-info">Not calculated yet</p>
                             </div>
                         </div>
                         <div class="stat-card">
@@ -109,8 +109,8 @@
                             </div>
                             <div class="stat-details">
                                 <h3>Pending Tasks</h3>
-                                <p class="stat-number">5</p>
-                                <p class="stat-info">2 due this week</p>
+                                <p class="stat-number">0</p>
+                                <p class="stat-info">No pending tasks</p>
                             </div>
                         </div>
                         <div class="stat-card">
@@ -119,8 +119,8 @@
                             </div>
                             <div class="stat-details">
                                 <h3>Attendance</h3>
-                                <p class="stat-number">92%</p>
-                                <p class="stat-info">This semester</p>
+                                <p class="stat-number">0%</p>
+                                <p class="stat-info">No data available</p>
                             </div>
                         </div>
                         <div class="stat-card">
@@ -129,8 +129,8 @@
                             </div>
                             <div class="stat-details">
                                 <h3>Next Exam</h3>
-                                <p class="stat-number">6</p>
-                                <p class="stat-info">Days remaining</p>
+                                <p class="stat-number">-</p>
+                                <p class="stat-info">No upcoming exams</p>
                             </div>
                         </div>
                     </div>
@@ -143,164 +143,77 @@
                                 <a href="student-timetable.html" class="view-all">View Full Timetable</a>
                             </div>
                             <ul class="class-list">
-                                <li class="class-item completed">
-                                    <div class="class-time">
-                                        <p>08:30 AM</p>
-                                        <span class="time-indicator"></span>
-                                    </div>
-                                    <div class="class-info">
-                                        <h4>Database Management</h4>
-                                        <p>Room 305 • Dr. Rajesh Sharma</p>
-                                    </div>
-                                    <div class="class-status">Completed</div>
-                                </li>
-                                <li class="class-item active">
-                                    <div class="class-time">
-                                        <p>11:00 AM</p>
-                                        <span class="time-indicator"></span>
-                                    </div>
-                                    <div class="class-info">
-                                        <h4>Web Development</h4>
-                                        <p>Computer Lab • Prof. Anika Desai</p>
-                                    </div>
-                                    <div class="class-status">Ongoing</div>
-                                </li>
                                 <li class="class-item">
-                                    <div class="class-time">
-                                        <p>02:00 PM</p>
-                                        <span class="time-indicator"></span>
+                                    <div class="class-info" style="text-align: center; width: 100%; padding: 20px;">
+                                        <p>No classes scheduled for today</p>
                                     </div>
-                                    <div class="class-info">
-                                        <h4>Data Structures</h4>
-                                        <p>Room 210 • Dr. Vikram Singh</p>
-                                    </div>
-                                    <div class="class-status">Upcoming</div>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- Pending Assignments -->
-                        <div class="dashboard-card recent-assignments">
+                        <div class="dashboard-card pending-assignments">
                             <div class="card-header">
                                 <h3>Pending Assignments</h3>
                                 <a href="student-assignments.html" class="view-all">View All</a>
                             </div>
                             <ul class="assignment-list">
                                 <li class="assignment-item">
-                                    <div class="assignment-info">
-                                        <div>
-                                            <h4>Create a Responsive Website</h4>
-                                            <p>Web Development • Prof. Anika Desai</p>
-                                        </div>
+                                    <div class="assignment-info" style="text-align: center; width: 100%; padding: 20px;">
+                                        <p>No pending assignments</p>
                                     </div>
-                                    <div class="deadline urgent">Due in 2 days</div>
-                                </li>
-                                <li class="assignment-item">
-                                    <div class="assignment-info">
-                                        <div>
-                                            <h4>Binary Tree Implementation</h4>
-                                            <p>Data Structures • Dr. Vikram Singh</p>
-                                        </div>
-                                    </div>
-                                    <div class="deadline">Due in 5 days</div>
-                                </li>
-                                <li class="assignment-item">
-                                    <div class="assignment-info">
-                                        <div>
-                                            <h4>Design an ER Diagram</h4>
-                                            <p>Database Management • Dr. Rajesh Sharma</p>
-                                        </div>
-                                    </div>
-                                    <div class="deadline">Due in 7 days</div>
-                                </li>
-                                <li class="assignment-item">
-                                    <div class="assignment-info">
-                                        <div>
-                                            <h4>Algorithm Analysis Report</h4>
-                                            <p>Algorithm Design • Dr. Meera Iyer</p>
-                                        </div>
-                                    </div>
-                                    <div class="deadline">Due in 10 days</div>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Attendance Overview -->
-                        <div class="dashboard-card attendance-overview">
+                        <!-- Attendance Report -->
+                        <div class="dashboard-card attendance-report">
                             <div class="card-header">
-                                <h3>Attendance Overview</h3>
+                                <h3>Attendance Report</h3>
                                 <select class="period-select">
-                                    <option>This Semester</option>
+                                    <option>This Month</option>
                                     <option>Last Month</option>
-                                    <option>This Week</option>
+                                    <option>This Semester</option>
                                 </select>
                             </div>
-                            <div class="summary-overview">
-                                <div class="summary-stat">
-                                    <div class="stat-circle">
-                                        <svg width="100" height="100" viewBox="0 0 100 100">
-                                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
-                                            <circle class="circle-fill" cx="50" cy="50" r="45" data-percentage="92"></circle>
-                                        </svg>
-                                        <span class="percentage">92%</span>
-                                    </div>
-                                    <p>Overall Attendance</p>
+                            <div class="attendance-stats">
+                                <div class="attendance-circle">
+                                    <svg width="120" height="120" viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="54" fill="none" stroke="#f0f0f0" stroke-width="12" />
+                                        <circle class="circle-fill" cx="60" cy="60" r="45" fill="none" stroke="#4e73df" stroke-width="12" stroke-dasharray="282.7" stroke-dashoffset="282.7" data-percentage="0" />
+                                    </svg>
+                                    <div class="attendance-percentage">0%</div>
                                 </div>
-                                <div class="summary-details">
-                                    <div class="detail-item">
-                                        <span class="detail-value present">128</span>
-                                        <span class="detail-label">Present</span>
+                                <div class="attendance-details">
+                                    <div class="attendance-detail">
+                                        <div class="detail-label">Present</div>
+                                        <div class="detail-value">0 days</div>
                                     </div>
-                                    <div class="detail-item">
-                                        <span class="detail-value late">7</span>
-                                        <span class="detail-label">Late</span>
+                                    <div class="attendance-detail">
+                                        <div class="detail-label">Late</div>
+                                        <div class="detail-value">0 days</div>
                                     </div>
-                                    <div class="detail-item">
-                                        <span class="detail-value absent">4</span>
-                                        <span class="detail-label">Absent</span>
+                                    <div class="attendance-detail">
+                                        <div class="detail-label">Absent</div>
+                                        <div class="detail-value">0 days</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Recent Notes -->
-                        <div class="dashboard-card calendar-events">
+                        <div class="dashboard-card recent-notes">
                             <div class="card-header">
                                 <h3>Recent Notes</h3>
                                 <a href="student-notes.html" class="view-all">View All</a>
                             </div>
-                            <div class="notes-list">
-                                <div class="notes-item">
-                                    <div class="notes-icon">
-                                        <i class="fas fa-file-pdf"></i>
+                            <ul class="notes-list">
+                                <li class="notes-item">
+                                    <div class="notes-info" style="text-align: center; width: 100%; padding: 20px;">
+                                        <p>No notes available</p>
                                     </div>
-                                    <div class="notes-details">
-                                        <h4>Introduction to CSS Flexbox</h4>
-                                        <p class="notes-class">Web Development</p>
-                                        <p class="notes-info">Shared 2 days ago</p>
-                                    </div>
-                                </div>
-                                <div class="notes-item">
-                                    <div class="notes-icon">
-                                        <i class="fas fa-file-powerpoint"></i>
-                                    </div>
-                                    <div class="notes-details">
-                                        <h4>Binary Search Trees</h4>
-                                        <p class="notes-class">Data Structures</p>
-                                        <p class="notes-info">Shared 3 days ago</p>
-                                    </div>
-                                </div>
-                                <div class="notes-item">
-                                    <div class="notes-icon">
-                                        <i class="fas fa-file-word"></i>
-                                    </div>
-                                    <div class="notes-details">
-                                        <h4>Database Normalization</h4>
-                                        <p class="notes-class">Database Management</p>
-                                        <p class="notes-info">Shared 5 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -314,5 +227,6 @@
     </div>
 
     <script src="js/dashboard.js"></script>
+    <script src="js/user-profile.js"></script>
 </body>
 </html> 

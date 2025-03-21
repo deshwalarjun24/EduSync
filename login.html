@@ -17,136 +17,98 @@
             <a href="index.html" class="logo">Edu<span>Sync</span></a>
             <div class="login-nav">
                 <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+                <a href="signup.html" title="Sign Up"><i class="fas fa-user-plus"></i></a>
             </div>
         </div>
 
-        <div class="login-form-container">
-            <div class="login-tabs">
-                <button class="tab-btn active" data-tab="teacher">Teacher Login</button>
-                <button class="tab-btn" data-tab="student">Student Login</button>
-            </div>
+        <div class="welcome-text">
+            <h2>Welcome Back!</h2>
+            <p>Please login to your account to continue</p>
+        </div>
 
+        <div class="login-tabs">
+            <button class="tab-btn active" data-tab="teacher">Teacher Login</button>
+            <button class="tab-btn" data-tab="student">Student Login</button>
+        </div>
+
+        <div class="login-forms">
             <!-- Teacher Login Form -->
             <form id="teacherLoginForm" class="login-form active">
-                <h2>Teacher Login</h2>
-                <div class="input-group">
-                    <div class="input-field">
-                        <label for="teacherEmail">Email</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="teacherEmail" placeholder="Enter your email" required>
-                        </div>
-                    </div>
-                    <div class="input-field">
-                        <label for="teacherPassword">Password</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="teacherPassword" placeholder="Enter your password" required>
-                            <i class="toggle-password fas fa-eye"></i>
-                        </div>
+                <div class="input-field">
+                    <label for="teacherEmail">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="teacherEmail" placeholder="Enter your email" required>
                     </div>
                 </div>
-                <div class="remember-forgot">
-                    <div class="remember-me">
-                        <input type="checkbox" id="teacherRemember">
-                        <label for="teacherRemember">Remember me</label>
+                <div class="input-field">
+                    <label for="teacherPassword">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="teacherPassword" placeholder="Enter your password" required>
+                        <i class="toggle-password fas fa-eye"></i>
                     </div>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
                     <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
-                <button type="submit" class="btn btn-primary full-width">Login</button>
-                
-                <!-- Demo Credentials for Teacher -->
-                <div class="demo-credentials">
-                    <p>Demo Credentials:</p>
-                    <div class="demo-user">
-                        <strong>Prof. Rajesh Sharma</strong>
-                        <div>Email: rajesh.sharma@edusync.com</div>
-                        <div>Password: teacher123</div>
-                    </div>
-                </div>
-                
-                <div class="signup-link">
-                    Don't have an account? <a href="signup.html" class="btn-link">Sign up as a Teacher</a>
-                </div>
+                <button type="submit" class="btn btn-primary full-width">Log In</button>
             </form>
 
             <!-- Student Login Form -->
             <form id="studentLoginForm" class="login-form">
-                <h2>Student Login</h2>
-                <div class="default-credentials-banner">
-                    <div class="banner-icon"><i class="fas fa-info-circle"></i></div>
-                    <div class="banner-text">
-                        <strong>Default Credentials:</strong>
-                        <div>Email: studentx@edusync.com</div>
-                        <div>Password: studentx@123</div>
+                <div class="input-field">
+                    <label for="studentEmail">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="studentEmail" placeholder="Enter your email" required>
                     </div>
                 </div>
-                <div class="input-group">
-                    <div class="input-field">
-                        <label for="studentEmail">Email</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="studentEmail" placeholder="Enter your email" required>
-                        </div>
-                    </div>
-                    <div class="input-field">
-                        <label for="studentPassword">Password</label>
-                        <div class="input-with-icon">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="studentPassword" placeholder="Enter your password" required>
-                            <i class="toggle-password fas fa-eye"></i>
-                        </div>
+                <div class="input-field">
+                    <label for="studentPassword">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="studentPassword" placeholder="Enter your password" required>
+                        <i class="toggle-password fas fa-eye"></i>
                     </div>
                 </div>
-                <div class="remember-forgot">
-                    <div class="remember-me">
-                        <input type="checkbox" id="studentRemember">
-                        <label for="studentRemember">Remember me</label>
-                    </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
                     <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
-                <button type="submit" class="btn btn-primary full-width">Login</button>
-                
-                <!-- Demo Credentials for Student -->
-                <div class="demo-credentials">
-                    <p>Other Demo Account:</p>
-                    <div class="demo-user">
-                        <strong>Priya Patel</strong>
-                        <div>Email: priya.patel@edusync.com</div>
-                        <div>Password: student123</div>
-                    </div>
-                </div>
-                
-                <div class="signup-link">
-                    Don't have an account? <a href="signup.html" class="btn-link">Sign up as a Student</a>
-                </div>
+                <button type="submit" class="btn btn-primary full-width">Log In</button>
             </form>
         </div>
 
         <div class="login-footer">
-            <p>&copy; 2023 EduSync. All rights reserved.</p>
-            <div class="login-footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Help</a>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+        
+        <!-- Test Login Information -->
+        <div class="test-login-info" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; border-left: 4px solid #4e73df;">
+            <h4 style="margin-top: 0; color: #4e73df;">Test Login Information</h4>
+            <p style="margin-bottom: 5px; font-size: 14px;">For testing purposes, you can use:</p>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div>
+                    <strong style="font-size: 14px;">Teacher:</strong>
+                    <p style="margin: 0; font-size: 13px;">Email: teacher@edusync.com</p>
+                    <p style="margin: 0; font-size: 13px;">Password: teacher123</p>
+                </div>
+                <div>
+                    <strong style="font-size: 14px;">Student:</strong>
+                    <p style="margin: 0; font-size: 13px;">Email: student@edusync.com</p>
+                    <p style="margin: 0; font-size: 13px;">Password: student123</p>
+                </div>
             </div>
+            <p style="margin: 5px 0 0; font-size: 12px; color: #6c757d;">Note: These are placeholder accounts for demonstration. All data is stored locally in your browser.</p>
         </div>
-    </div>
-
-    <div class="login-illustration">
-        <div class="illustration-content">
-            <h1>Welcome to EduSync</h1>
-            <p>The complete college management system for teachers and students</p>
-            <ul class="feature-list">
-                <li><i class="fas fa-qrcode"></i> QR Code Based Attendance</li>
-                <li><i class="fas fa-file-alt"></i> Assignment Management</li>
-                <li><i class="fas fa-book"></i> Notes and Study Materials</li>
-                <li><i class="fas fa-chart-line"></i> Academic Performance Tracking</li>
-            </ul>
-        </div>
-        <!-- <div class="illustration-image">
-            <img src="https://via.placeholder.com/600x800" alt="EduSync Illustration">
-        </div> -->
     </div>
 
     <div class="theme-toggle" id="themeToggle">
@@ -154,6 +116,173 @@
         <i class="fas fa-moon"></i>
     </div>
 
-    <script src="js/login.js"></script>
+    <!-- Backend connection info -->
+    <div style="position: fixed; bottom: 15px; right: 15px; background-color: #f8f9fa; border-left: 4px solid #4e73df; padding: 10px; border-radius: 4px; max-width: 350px; font-size: 13px;">
+        <i class="fas fa-code" style="color: #4e73df; margin-right: 5px;"></i>
+        <strong>Developer Note:</strong> This is a frontend prototype. For backend integration, see the <code>js/api-mock.js</code> file.
+    </div>
+
+    <script src="js/api-mock.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const loginForms = document.querySelectorAll('.login-form');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tab = btn.dataset.tab;
+                    
+                    // Update active tab
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Show corresponding form
+                    loginForms.forEach(form => {
+                        form.classList.remove('active');
+                        if (form.id === `${tab}LoginForm`) {
+                            form.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Toggle password visibility
+            const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+            togglePasswordBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        this.classList.replace('fa-eye', 'fa-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        this.classList.replace('fa-eye-slash', 'fa-eye');
+                    }
+                });
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            // Form submission handling
+            const teacherForm = document.getElementById('teacherLoginForm');
+            const studentForm = document.getElementById('studentLoginForm');
+
+            teacherForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('teacherEmail').value;
+                const password = document.getElementById('teacherPassword').value;
+                
+                // In a real implementation, this would use the API:
+                // API.Auth.login(email, password, 'teacher')
+                //   .then(response => response.json())
+                //   .then(data => {
+                //     if (data.success) {
+                //       localStorage.setItem('token', data.token);
+                //       window.location.href = 'teacher-dashboard.html';
+                //     } else {
+                //       alert(data.message || 'Login failed');
+                //     }
+                //   })
+                //   .catch(error => {
+                //     console.error('Login error:', error);
+                //     alert('An error occurred during login');
+                //   });
+                
+                // Test login for demo
+                if (email === 'teacher@edusync.com' && password === 'teacher123') {
+                    // Create demo teacher account
+                    const teacherData = {
+                        email: 'teacher@edusync.com',
+                        fullName: 'Alex Johnson',
+                        role: 'teacher',
+                        department: 'Computer Science',
+                        password: 'teacher123'
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(teacherData));
+                    window.location.href = 'teacher-dashboard.html';
+                    return;
+                }
+                
+                // In a real app, this would verify credentials against a database
+                // For now, just check if the user has registered
+                const storedUser = localStorage.getItem('teacher_' + email);
+                if (storedUser) {
+                    const userData = JSON.parse(storedUser);
+                    if (userData.password === password) {
+                        // Successful login
+                        localStorage.setItem('currentUser', storedUser);
+                        window.location.href = 'teacher-dashboard.html';
+                    } else {
+                        // Wrong password
+                        alert('Incorrect password. Please try again.');
+                    }
+                } else {
+                    // User doesn't exist
+                    alert('No account found with this email. Please sign up first.');
+                }
+            });
+
+            studentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('studentEmail').value;
+                const password = document.getElementById('studentPassword').value;
+                
+                // In a real implementation, this would use the API:
+                // API.Auth.login(email, password, 'student')
+                //   .then(response => response.json())
+                //   .then(data => {
+                //     if (data.success) {
+                //       localStorage.setItem('token', data.token);
+                //       window.location.href = 'student-dashboard.html';
+                //     } else {
+                //       alert(data.message || 'Login failed');
+                //     }
+                //   })
+                //   .catch(error => {
+                //     console.error('Login error:', error);
+                //     alert('An error occurred during login');
+                //   });
+                
+                // Test login for demo
+                if (email === 'student@edusync.com' && password === 'student123') {
+                    // Create demo student account
+                    const studentData = {
+                        email: 'student@edusync.com',
+                        fullName: 'Emily Parker',
+                        role: 'student',
+                        course: 'Computer Science',
+                        semester: '4',
+                        password: 'student123'
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(studentData));
+                    window.location.href = 'student-dashboard.html';
+                    return;
+                }
+                
+                // In a real app, this would verify credentials against a database
+                // For now, just check if the user has registered
+                const storedUser = localStorage.getItem('student_' + email);
+                if (storedUser) {
+                    const userData = JSON.parse(storedUser);
+                    if (userData.password === password) {
+                        // Successful login
+                        localStorage.setItem('currentUser', storedUser);
+                        window.location.href = 'student-dashboard.html';
+                    } else {
+                        // Wrong password
+                        alert('Incorrect password. Please try again.');
+                    }
+                } else {
+                    // User doesn't exist
+                    alert('No account found with this email. Please sign up first.');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

@@ -4,6 +4,60 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Load user data from localStorage
+    const currentUserData = localStorage.getItem('currentUser');
+    if (currentUserData) {
+        const userData = JSON.parse(currentUserData);
+        
+        // Update user info in sidebar
+        const userNameElement = document.querySelector('.user-details h3');
+        const userRoleElement = document.querySelector('.user-details p');
+        const userAvatarElement = document.querySelector('.user-avatar img');
+        
+        if (userNameElement && userData.fullName) {
+            userNameElement.textContent = userData.fullName;
+        }
+        
+        if (userRoleElement) {
+            if (userData.role === 'teacher' && userData.department) {
+                userRoleElement.textContent = userData.department;
+            } else if (userData.role === 'student') {
+                userRoleElement.textContent = `${userData.course}, Semester ${userData.semester || ''}`;
+            }
+        }
+        
+        if (userAvatarElement && userData.profilePhoto) {
+            userAvatarElement.src = userData.profilePhoto;
+        }
+        
+        // Also update the welcome message in the dashboard
+        const welcomeMessage = document.querySelector('.section-header p');
+        if (welcomeMessage && userData.fullName) {
+            if (userData.role === 'teacher') {
+                welcomeMessage.textContent = `Welcome back, ${userData.fullName.split(' ')[0]}! Here's an overview of your classes and activities.`;
+            } else if (userData.role === 'student') {
+                welcomeMessage.textContent = `Welcome back, ${userData.fullName.split(' ')[0]}! Here's an overview of your academic activities and upcoming tasks.`;
+            }
+        }
+        
+        // Update the dashboard title with user name
+        const dashboardTitle = document.querySelector('.section-header h1');
+        if (dashboardTitle && userData.role) {
+            if (userData.role === 'teacher') {
+                dashboardTitle.textContent = `Teacher Dashboard`;
+            } else if (userData.role === 'student') {
+                dashboardTitle.textContent = `Student Dashboard`;
+            }
+        }
+    } else {
+        console.warn('No user data found in localStorage. Redirecting to login page.');
+        // Redirect to login if no user data is found
+        window.location.href = 'login.html';
+    }
+    
+    // Add backend connection hint
+    addBackendConnectionHint();
+    
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -61,7 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoutButton) {
         logoutButton.addEventListener('click', function(e) {
             e.preventDefault();
-            // In a real app this would clear session
+            // Clear currentUser from localStorage
+            localStorage.removeItem('currentUser');
+            // Redirect to login page
             window.location.href = 'login.html';
         });
     }
@@ -83,17 +139,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (menuToggle && sidebar) {
         menuToggle.addEventListener('click', function() {
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+            sidebar.classList.toggle('active');
         });
     }
     
     if (closeSidebar && sidebar) {
         closeSidebar.addEventListener('click', function() {
             sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Re-enable scrolling
         });
     }
     
@@ -272,6 +324,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Student Dashboard specific functions
     setupStudentDashboard();
 });
+
+// Function to add a subtle backend connection hint on dashboards
+function addBackendConnectionHint() {
+    const dashboardContent = document.querySelector('.main-content');
+    
+    if (dashboardContent) {
+        const backendHint = document.createElement('div');
+        backendHint.classList.add('backend-connection-hint');
+        backendHint.innerHTML = `
+            <div style="margin: 20px 0; padding: 10px 15px; background-color: #f8f9fa; border-left: 4px solid #4e73df; border-radius: 4px; font-size: 14px;">
+                <i class="fas fa-info-circle" style="color: #4e73df; margin-right: 8px;"></i>
+                <span>This is a frontend prototype. Data shown is placeholder content that will be replaced with real data when connected to a backend.</span>
+                <button class="btn btn-sm btn-primary" style="margin-left: 10px; padding: 2px 8px; font-size: 12px;" onclick="alert('In a complete implementation, this would provide instructions for connecting to the backend API.')">Learn More</button>
+            </div>
+        `;
+        
+        // Insert at the top of the dashboard, after the section header
+        const sectionHeader = document.querySelector('.section-header');
+        if (sectionHeader) {
+            sectionHeader.insertAdjacentElement('afterend', backendHint);
+        } else {
+            dashboardContent.prepend(backendHint);
+        }
+    }
+}
 
 // Add hover effects and animations to dashboard cards
 function initializeInteractiveComponents() {

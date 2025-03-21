@@ -22,21 +22,38 @@
             </div>
         </div>
 
-        <div class="login-form-container">
-            <div class="login-tabs">
-                <button class="tab-btn active" data-tab="teacher">Teacher Registration</button>
-                <button class="tab-btn" data-tab="student">Student Registration</button>
-            </div>
+        <div class="welcome-text">
+            <h2>Create Your Account</h2>
+            <p>Join EduSync to access all features</p>
+        </div>
 
+        <div class="login-tabs">
+            <button class="tab-btn active" data-tab="teacher">Teacher Registration</button>
+            <button class="tab-btn" data-tab="student">Student Registration</button>
+        </div>
+
+        <div class="login-form-container">
             <!-- Teacher Registration Form -->
             <form id="teacherSignupForm" class="login-form active">
-                <h2>Teacher Registration</h2>
                 <div class="input-group">
                     <div class="input-field">
                         <label for="teacherFullName">Full Name*</label>
                         <div class="input-with-icon">
                             <i class="fas fa-user"></i>
                             <input type="text" id="teacherFullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="teacherProfilePhoto">Profile Photo</label>
+                        <div class="file-upload-wrapper">
+                            <div class="file-upload-button">
+                                <i class="fas fa-camera"></i>
+                                <span>Choose Photo</span>
+                            </div>
+                            <input type="file" id="teacherProfilePhoto" accept="image/*" class="file-upload-input">
+                            <div class="file-upload-preview">
+                                <img src="https://via.placeholder.com/100x100.png?text=Profile" alt="Profile Preview" id="teacherPhotoPreview">
+                            </div>
                         </div>
                     </div>
                     <div class="input-field">
@@ -98,13 +115,25 @@
 
             <!-- Student Registration Form -->
             <form id="studentSignupForm" class="login-form">
-                <h2>Student Registration</h2>
                 <div class="input-group">
                     <div class="input-field">
                         <label for="studentFullName">Full Name*</label>
                         <div class="input-with-icon">
                             <i class="fas fa-user"></i>
                             <input type="text" id="studentFullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="studentProfilePhoto">Profile Photo</label>
+                        <div class="file-upload-wrapper">
+                            <div class="file-upload-button">
+                                <i class="fas fa-camera"></i>
+                                <span>Choose Photo</span>
+                            </div>
+                            <input type="file" id="studentProfilePhoto" accept="image/*" class="file-upload-input">
+                            <div class="file-upload-preview">
+                                <img src="https://via.placeholder.com/100x100.png?text=Profile" alt="Profile Preview" id="studentPhotoPreview">
+                            </div>
                         </div>
                     </div>
                     <div class="input-field">
@@ -203,27 +232,172 @@
         </div>
     </div>
 
-    <div class="login-illustration">
-        <div class="illustration-content">
-            <h1>Join EduSync</h1>
-            <p>Create your account and become a part of the modern college management experience</p>
-            <ul class="feature-list">
-                <li><i class="fas fa-qrcode"></i> QR Code Based Attendance</li>
-                <li><i class="fas fa-file-alt"></i> Assignment Management</li>
-                <li><i class="fas fa-book"></i> Notes and Study Materials</li>
-                <li><i class="fas fa-chart-line"></i> Academic Performance Tracking</li>
-            </ul>
-        </div>
-        <!-- <div class="illustration-image">
-            <img src="https://via.placeholder.com/600x800" alt="EduSync Illustration">
-        </div> -->
-    </div>
-
     <div class="theme-toggle" id="themeToggle">
         <i class="fas fa-sun"></i>
         <i class="fas fa-moon"></i>
     </div>
 
-    <script src="js/signup.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const loginForms = document.querySelectorAll('.login-form');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tab = btn.dataset.tab;
+                    
+                    // Update active tab
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Show corresponding form
+                    loginForms.forEach(form => {
+                        form.classList.remove('active');
+                        if (form.id === `${tab}SignupForm`) {
+                            form.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Toggle password visibility
+            const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+            togglePasswordBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        this.classList.replace('fa-eye', 'fa-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        this.classList.replace('fa-eye-slash', 'fa-eye');
+                    }
+                });
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+            });
+            
+            // Handle profile photo uploads
+            function handleFileUpload(inputId, previewId) {
+                const fileInput = document.getElementById(inputId);
+                const preview = document.getElementById(previewId);
+                const uploadButton = fileInput.previousElementSibling;
+                
+                uploadButton.addEventListener('click', function() {
+                    fileInput.click();
+                });
+                
+                fileInput.addEventListener('change', function() {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            preview.src = e.target.result;
+                        }
+                        
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            }
+            
+            handleFileUpload('teacherProfilePhoto', 'teacherPhotoPreview');
+            handleFileUpload('studentProfilePhoto', 'studentPhotoPreview');
+
+            // Form submission handling
+            const teacherForm = document.getElementById('teacherSignupForm');
+            const studentForm = document.getElementById('studentSignupForm');
+
+            teacherForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const fullName = document.getElementById('teacherFullName').value;
+                const email = document.getElementById('teacherEmail').value;
+                const password = document.getElementById('teacherPassword').value;
+                const confirmPassword = document.getElementById('teacherConfirmPassword').value;
+                
+                // Validate passwords match
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                // Save user data (in a real app this would go to a server/database)
+                const userData = {
+                    fullName: fullName,
+                    email: email,
+                    department: document.getElementById('teacherDepartment').value,
+                    mobile: document.getElementById('teacherMobile').value,
+                    password: password, // In a real app, this would be hashed
+                    role: 'teacher'
+                };
+                
+                // Save profile photo if selected
+                const photoInput = document.getElementById('teacherProfilePhoto');
+                if (photoInput.files && photoInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        userData.profilePhoto = e.target.result;
+                        localStorage.setItem('teacher_' + email, JSON.stringify(userData));
+                        alert('Registration successful! You can now login.');
+                        window.location.href = 'login.html';
+                    };
+                    reader.readAsDataURL(photoInput.files[0]);
+                } else {
+                    localStorage.setItem('teacher_' + email, JSON.stringify(userData));
+                    alert('Registration successful! You can now login.');
+                    window.location.href = 'login.html';
+                }
+            });
+
+            studentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const fullName = document.getElementById('studentFullName').value;
+                const email = document.getElementById('studentEmail').value;
+                const password = document.getElementById('studentPassword').value;
+                const confirmPassword = document.getElementById('studentConfirmPassword').value;
+                
+                // Validate passwords match
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                // Save user data (in a real app this would go to a server/database)
+                const userData = {
+                    fullName: fullName,
+                    email: email,
+                    course: document.getElementById('studentDepartment').value,
+                    semester: document.getElementById('studentSemester').value,
+                    rollNo: document.getElementById('studentRollNo').value,
+                    mobile: document.getElementById('studentMobile').value,
+                    password: password, // In a real app, this would be hashed
+                    role: 'student'
+                };
+                
+                // Save profile photo if selected
+                const photoInput = document.getElementById('studentProfilePhoto');
+                if (photoInput.files && photoInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        userData.profilePhoto = e.target.result;
+                        localStorage.setItem('student_' + email, JSON.stringify(userData));
+                        alert('Registration successful! You can now login.');
+                        window.location.href = 'login.html';
+                    };
+                    reader.readAsDataURL(photoInput.files[0]);
+                } else {
+                    localStorage.setItem('student_' + email, JSON.stringify(userData));
+                    alert('Registration successful! You can now login.');
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
