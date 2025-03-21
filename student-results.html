@@ -92,11 +92,11 @@
                         <p>View your semester-wise results, grade point average, and academic performance history.</p>
                     </div>
 
-                    <!-- CGPA Overview Card -->
-                    <div class="cgpa-overview">
-                        <div class="cgpa-card">
-                            <div class="cgpa-value">
-                                <h2>8.76</h2>
+                    <!-- CGPA Overview -->
+                    <div class="dashboard-card cgpa-overview">
+                        <div class="cgpa-header">
+                            <div class="cgpa-title">
+                                <h3>0.0</h3>
                                 <p>Current CGPA</p>
                             </div>
                             <div class="cgpa-chart">
@@ -105,385 +105,130 @@
                             <div class="cgpa-info">
                                 <div class="info-item">
                                     <span class="info-label">Last Semester GPA</span>
-                                    <span class="info-value">9.1</span>
+                                    <span class="info-value">0.0</span>
                                 </div>
                                 <div class="info-item">
                                     <span class="info-label">Best Subject</span>
-                                    <span class="info-value">Data Structures</span>
+                                    <span class="info-value">N/A</span>
                                 </div>
                                 <div class="info-item">
                                     <span class="info-label">Credits Completed</span>
-                                    <span class="info-value">84/160</span>
+                                    <span class="info-value">0/160</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="dashboard-grid">
-                        <!-- Semester Selection -->
-                        <div class="dashboard-card semester-select-card">
-                            <div class="card-header">
-                                <h3>Select Semester</h3>
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <div class="semester-tabs">
-                                <button class="semester-tab">Sem 1</button>
-                                <button class="semester-tab">Sem 2</button>
-                                <button class="semester-tab">Sem 3</button>
-                                <button class="semester-tab active">Sem 4</button>
-                                <button class="semester-tab disabled">Sem 5</button>
-                                <button class="semester-tab disabled">Sem 6</button>
-                                <button class="semester-tab disabled">Sem 7</button>
-                                <button class="semester-tab disabled">Sem 8</button>
+                            <div class="stat-details">
+                                <h3>Current CGPA</h3>
+                                <p class="stat-number">0.0</p>
+                                <p class="stat-info">No grades recorded</p>
                             </div>
                         </div>
-
-                        <!-- Current Semester Results -->
-                        <div class="dashboard-card">
-                            <div class="card-header">
-                                <h3>Semester 4 Results</h3>
-                                <div class="semester-summary">
-                                    <div class="summary-item">
-                                        <span class="summary-label">GPA</span>
-                                        <span class="summary-value">9.1</span>
-                                    </div>
-                                    <div class="summary-item">
-                                        <span class="summary-label">Credits</span>
-                                        <span class="summary-value">21</span>
-                                    </div>
-                                </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-check-circle"></i>
                             </div>
-                            <div class="results-table-wrapper">
-                                <table class="results-table">
+                            <div class="stat-details">
+                                <h3>Courses Passed</h3>
+                                <p class="stat-number">0</p>
+                                <p class="stat-info">No courses completed</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Need Improvement</h3>
+                                <p class="stat-number">0</p>
+                                <p class="stat-info">No courses below threshold</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Highest Grade</h3>
+                                <p class="stat-number">-</p>
+                                <p class="stat-info">No grades available</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Semester Results -->
+                        <div class="dashboard-card semester-results">
+                            <div class="card-header">
+                                <h3>Semester Results</h3>
+                                <select class="period-select">
+                                    <option>All Semesters</option>
+                                </select>
+                            </div>
+                            <div class="table-container">
+                                <table class="data-table">
                                     <thead>
                                         <tr>
+                                            <th>Course</th>
                                             <th>Code</th>
-                                            <th>Subject</th>
                                             <th>Credits</th>
                                             <th>Grade</th>
+                                            <th>GPA</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>CS401</td>
-                                            <td>Database Management Systems</td>
-                                            <td>4</td>
-                                            <td>A</td>
-                                            <td class="status passed">Passed</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS402</td>
-                                            <td>Data Structures</td>
-                                            <td>4</td>
-                                            <td>A+</td>
-                                            <td class="status passed">Passed</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS403</td>
-                                            <td>Web Development</td>
-                                            <td>3</td>
-                                            <td>A</td>
-                                            <td class="status passed">Passed</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS404</td>
-                                            <td>Algorithm Design</td>
-                                            <td>4</td>
-                                            <td>B+</td>
-                                            <td class="status passed">Passed</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS405</td>
-                                            <td>Software Engineering</td>
-                                            <td>3</td>
-                                            <td>A-</td>
-                                            <td class="status passed">Passed</td>
-                                        </tr>
-                                        <tr>
-                                            <td>HU401</td>
-                                            <td>Professional Communication</td>
-                                            <td>3</td>
-                                            <td>B</td>
-                                            <td class="status passed">Passed</td>
+                                            <td colspan="6" style="text-align: center; padding: 40px 20px;">
+                                                <i class="fas fa-graduation-cap" style="font-size: 48px; color: #e9ecef; margin-bottom: 15px; display: block;"></i>
+                                                <h4>No Results Available</h4>
+                                                <p>Your course results will appear here once grades are published.</p>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <!-- Subject Performance Analysis -->
-                        <div class="dashboard-card">
+                        <!-- GPA Progress -->
+                        <div class="dashboard-card gpa-progress">
                             <div class="card-header">
-                                <h3>Subject Performance Analysis</h3>
-                                <select class="period-select">
-                                    <option>Current Semester</option>
-                                    <option>All Semesters</option>
-                                </select>
+                                <h3>GPA Progression</h3>
                             </div>
-                            <div class="subject-performance">
-                                <div class="performance-chart">
-                                    <canvas id="subjectPerformanceChart"></canvas>
-                                </div>
-                                <div class="performance-legend">
-                                    <div class="legend-item">
-                                        <span class="legend-color theory"></span>
-                                        <span class="legend-label">Theory</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color practical"></span>
-                                        <span class="legend-label">Practical</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color assignments"></span>
-                                        <span class="legend-label">Assignments</span>
-                                    </div>
-                                </div>
+                            <div style="text-align: center; padding: 40px 20px;">
+                                <i class="fas fa-chart-line" style="font-size: 48px; color: #e9ecef; margin-bottom: 15px;"></i>
+                                <h4>No GPA Data Available</h4>
+                                <p>Your GPA progression chart will be displayed here once you have completed at least one semester.</p>
                             </div>
                         </div>
 
-                        <!-- Grade Distribution -->
-                        <div class="dashboard-card">
+                        <!-- Current Semester Progress -->
+                        <div class="dashboard-card current-semester">
                             <div class="card-header">
-                                <h3>Grade Distribution</h3>
-                                <select class="period-select">
-                                    <option>All Semesters</option>
-                                    <option>Semester 1</option>
-                                    <option>Semester 2</option>
-                                    <option>Semester 3</option>
-                                    <option>Semester 4</option>
-                                </select>
+                                <h3>Current Semester Progress</h3>
                             </div>
-                            <div class="grade-distribution">
-                                <div class="distribution-chart">
-                                    <div class="grade-bar">
-                                        <div class="grade-label">A+</div>
-                                        <div class="grade-progress">
-                                            <div class="progress-bar" style="width: 25%"></div>
-                                            <span class="progress-value">25%</span>
-                                        </div>
-                                    </div>
-                                    <div class="grade-bar">
-                                        <div class="grade-label">A</div>
-                                        <div class="grade-progress">
-                                            <div class="progress-bar" style="width: 35%"></div>
-                                            <span class="progress-value">35%</span>
-                                        </div>
-                                    </div>
-                                    <div class="grade-bar">
-                                        <div class="grade-label">B+</div>
-                                        <div class="grade-progress">
-                                            <div class="progress-bar" style="width: 15%"></div>
-                                            <span class="progress-value">15%</span>
-                                        </div>
-                                    </div>
-                                    <div class="grade-bar">
-                                        <div class="grade-label">B</div>
-                                        <div class="grade-progress">
-                                            <div class="progress-bar" style="width: 20%"></div>
-                                            <span class="progress-value">20%</span>
-                                        </div>
-                                    </div>
-                                    <div class="grade-bar">
-                                        <div class="grade-label">C+</div>
-                                        <div class="grade-progress">
-                                            <div class="progress-bar" style="width: 5%"></div>
-                                            <span class="progress-value">5%</span>
-                                        </div>
-                                    </div>
-                                    <div class="grade-bar">
-                                        <div class="grade-label">C</div>
-                                        <div class="grade-progress">
-                                            <div class="progress-bar" style="width: 0%"></div>
-                                            <span class="progress-value">0%</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div style="text-align: center; padding: 40px 20px;">
+                                <i class="fas fa-tasks" style="font-size: 48px; color: #e9ecef; margin-bottom: 15px;"></i>
+                                <h4>No Progress Data Available</h4>
+                                <p>Your current semester progress will be shown here as assignments and assessments are graded.</p>
                             </div>
                         </div>
 
-                        <!-- Academic Progress Timeline -->
-                        <div class="dashboard-card wide-card">
+                        <!-- Academic Standing -->
+                        <div class="dashboard-card academic-standing">
                             <div class="card-header">
-                                <h3>Academic Progress Timeline</h3>
+                                <h3>Academic Standing</h3>
                             </div>
-                            <div class="progress-timeline">
-                                <div class="timeline-wrapper">
-                                    <div class="timeline-track"></div>
-                                    <div class="timeline-items">
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot completed"></div>
-                                            <div class="timeline-content">
-                                                <h4>Semester 1</h4>
-                                                <p class="timeline-date">Aug 2022 - Dec 2022</p>
-                                                <div class="timeline-stats">
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">GPA</span>
-                                                        <span class="stat-value">8.5</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Credits</span>
-                                                        <span class="stat-value">21</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Ranking</span>
-                                                        <span class="stat-value">12/60</span>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-sm btn-outline">View Details</button>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot completed"></div>
-                                            <div class="timeline-content">
-                                                <h4>Semester 2</h4>
-                                                <p class="timeline-date">Jan 2023 - May 2023</p>
-                                                <div class="timeline-stats">
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">GPA</span>
-                                                        <span class="stat-value">8.7</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Credits</span>
-                                                        <span class="stat-value">21</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Ranking</span>
-                                                        <span class="stat-value">8/60</span>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-sm btn-outline">View Details</button>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot completed"></div>
-                                            <div class="timeline-content">
-                                                <h4>Semester 3</h4>
-                                                <p class="timeline-date">Aug 2023 - Dec 2023</p>
-                                                <div class="timeline-stats">
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">GPA</span>
-                                                        <span class="stat-value">8.9</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Credits</span>
-                                                        <span class="stat-value">21</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Ranking</span>
-                                                        <span class="stat-value">5/60</span>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-sm btn-outline">View Details</button>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot active"></div>
-                                            <div class="timeline-content active">
-                                                <h4>Semester 4</h4>
-                                                <p class="timeline-date">Jan 2024 - May 2024</p>
-                                                <div class="timeline-stats">
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">GPA</span>
-                                                        <span class="stat-value">9.1</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Credits</span>
-                                                        <span class="stat-value">21</span>
-                                                    </div>
-                                                    <div class="stat-item">
-                                                        <span class="stat-label">Ranking</span>
-                                                        <span class="stat-value">3/60</span>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-sm btn-primary">Current Semester</button>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-item upcoming">
-                                            <div class="timeline-dot upcoming"></div>
-                                            <div class="timeline-content">
-                                                <h4>Semester 5</h4>
-                                                <p class="timeline-date">Aug 2024 - Dec 2024</p>
-                                                <p class="upcoming-text">Will be available after enrollment</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Faculty Feedback -->
-                        <div class="dashboard-card">
-                            <div class="card-header">
-                                <h3>Faculty Feedback</h3>
-                                <select class="period-select">
-                                    <option>Current Semester</option>
-                                    <option>Previous Semester</option>
-                                </select>
-                            </div>
-                            <div class="feedback-list">
-                                <div class="feedback-item">
-                                    <div class="feedback-header">
-                                        <div class="feedback-info">
-                                            <h4>Database Management Systems</h4>
-                                            <p>Dr. Rajesh Sharma</p>
-                                        </div>
-                                        <div class="feedback-rating">
-                                            <div class="rating-stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                            </div>
-                                            <span class="rating-value">4.5/5</span>
-                                        </div>
-                                    </div>
-                                    <div class="feedback-content">
-                                        <p>"Aryan demonstrates excellent analytical skills and has a strong grasp of database concepts. His project implementations were particularly outstanding. Could improve participation in class discussions."</p>
-                                    </div>
-                                </div>
-                                <div class="feedback-item">
-                                    <div class="feedback-header">
-                                        <div class="feedback-info">
-                                            <h4>Data Structures</h4>
-                                            <p>Dr. Vikram Singh</p>
-                                        </div>
-                                        <div class="feedback-rating">
-                                            <div class="rating-stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <span class="rating-value">5/5</span>
-                                        </div>
-                                    </div>
-                                    <div class="feedback-content">
-                                        <p>"Outstanding performance in all assessments. Aryan's code is consistently efficient and well-documented. He actively helps other students and demonstrates leadership qualities during group activities."</p>
-                                    </div>
-                                </div>
-                                <div class="feedback-item">
-                                    <div class="feedback-header">
-                                        <div class="feedback-info">
-                                            <h4>Web Development</h4>
-                                            <p>Prof. Anika Desai</p>
-                                        </div>
-                                        <div class="feedback-rating">
-                                            <div class="rating-stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <span class="rating-value">4/5</span>
-                                        </div>
-                                    </div>
-                                    <div class="feedback-content">
-                                        <p>"Aryan has shown great potential in frontend development. His designs are creative and user-friendly. Needs to strengthen backend skills, but overall a dedicated student who submits work on time."</p>
-                                    </div>
-                                </div>
+                            <div class="standing-container" style="text-align: center; padding: 40px 20px;">
+                                <i class="fas fa-award" style="font-size: 48px; color: #e9ecef; margin-bottom: 15px;"></i>
+                                <h4>Academic Standing Not Available</h4>
+                                <p>Your academic standing will be displayed here after your first semester results are published.</p>
                             </div>
                         </div>
                     </div>
